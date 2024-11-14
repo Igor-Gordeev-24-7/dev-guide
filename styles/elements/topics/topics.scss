@@ -1,0 +1,35 @@
+.topics {
+  &__heading {
+    padding-bottom: 15px;
+    font-family: var(--font-family);
+    font-size: var(--text-size-big);
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  &__item {
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    background-color: var(--second-color);
+    border-radius: 5px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.33s;
+  }
+  &__item:hover {
+    background-color: var(--third-color);
+  }
+  &__item-name {
+    font-size: var(--text-size-middle);
+  }
+  &__item-description {
+    font-size: var(--text-size-small);
+    color: var(--gray-color);
+  }
+}

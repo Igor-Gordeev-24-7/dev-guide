@@ -1,0 +1,24 @@
+.footer {
+  padding: 15px 0px 15px 0px;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    font-family: var(--title-font-family);
+    font-size: var(--text-size-big);
+  }
+  &__menu {
+  }
+  &__menu-items {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  &__menu-item {
+  }
+  &__menu-item-link {
+    font-size: var(--text-size-middle);
+  }
+}

@@ -1,0 +1,74 @@
+.images-index {
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  &__content {
+  }
+  &__title {
+    font-size: var(--text-size-middle);
+    padding-bottom: 15px;
+  }
+  &__nav-menu {
+    width: 100%;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  &__nav-menu-item {
+    display: block;
+    padding: 10px 20px;
+    background-color: var(--second-color);
+    border-radius: 5px;
+    transition: all 0.33s;
+  }
+  &__nav-menu-item:hover {
+    background-color: var(--fourth-color);
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: 200px;
+    gap: 20px;
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    word-wrap: break-word;
+    gap: 10px;
+  }
+  &__item-name {
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+  &__img {
+    width: 100%;
+    height: 80%;
+    max-height: 160px;
+    min-height: 160px;
+  }
+  &__delete-form {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+  }
+  &__delete-form-input {
+  }
+  &__delete-btn {
+    display: block;
+    padding: 4px 6px;
+    background-color: var(--second-color);
+    border-radius: 5px;
+    transition: all 0.33s;
+    color: var(--white-color);
+  }
+  &__delete-btn:hover {
+    background-color: var(--fourth-color);
+  }
+}

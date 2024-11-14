@@ -1,0 +1,841 @@
+.posts,
+.admin-form,
+.topics-index,
+.topics-edit,
+.topics-create,
+.users-index,
+.users-edit,
+.users-create,
+.posts-index,
+.posts-edit,
+.posts-create {
+  margin-top: 25px;
+}
+.posts__wrapper,
+.admin-form__wrapper,
+.topics-index__wrapper,
+.topics-edit__wrapper,
+.topics-create__wrapper,
+.users-index__wrapper,
+.users-edit__wrapper,
+.users-create__wrapper,
+.posts-index__wrapper,
+.posts-edit__wrapper,
+.posts-create__wrapper {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 30px;
+}
+.posts__content,
+.admin-form__content,
+.topics-index__content,
+.topics-edit__content,
+.topics-create__content,
+.users-index__content,
+.users-edit__content,
+.users-create__content,
+.posts-index__content,
+.posts-edit__content,
+.posts-create__content {
+  padding: 20px;
+  width: 100%;
+  background-color: var(--dark-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.posts__menu,
+.admin-form__menu,
+.topics-index__menu,
+.topics-edit__menu,
+.topics-create__menu,
+.users-index__menu,
+.users-edit__menu,
+.users-create__menu,
+.posts-index__menu,
+.posts-edit__menu,
+.posts-create__menu {
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.posts__menu-el,
+.admin-form__menu-el,
+.topics-index__menu-el,
+.topics-edit__menu-el,
+.topics-create__menu-el,
+.users-index__menu-el,
+.users-edit__menu-el,
+.users-create__menu-el,
+.posts-index__menu-el,
+.posts-edit__menu-el,
+.posts-create__menu-el {
+  padding: 10px 20px;
+  background-color: var(--second-color);
+  border-radius: 5px;
+  transition: all 0.33s;
+}
+.posts__menu-el:hover,
+.admin-form__menu-el:hover,
+.topics-index__menu-el:hover,
+.topics-edit__menu-el:hover,
+.topics-create__menu-el:hover,
+.users-index__menu-el:hover,
+.users-edit__menu-el:hover,
+.users-create__menu-el:hover,
+.posts-index__menu-el:hover,
+.posts-edit__menu-el:hover,
+.posts-create__menu-el:hover {
+  background-color: var(--fourth-color);
+}
+.posts__header,
+.admin-form__header,
+.topics-index__header,
+.topics-edit__header,
+.topics-create__header,
+.users-index__header,
+.users-edit__header,
+.users-create__header,
+.posts-index__header,
+.posts-edit__header,
+.posts-create__header {
+  padding: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 30px;
+  border-bottom: 1px var(--second-color) solid;
+}
+.posts__header-title,
+.admin-form__header-title,
+.topics-index__header-title,
+.topics-edit__header-title,
+.topics-create__header-title,
+.users-index__header-title,
+.users-edit__header-title,
+.users-create__header-title,
+.posts-index__header-title,
+.posts-edit__header-title,
+.posts-create__header-title {
+  font-size: var(--text-size-middle);
+}
+.posts__header-container, .posts__item-container,
+.admin-form__header-container,
+.admin-form__item-container,
+.topics-index__header-container,
+.topics-index__item-container,
+.topics-edit__header-container,
+.topics-edit__item-container,
+.topics-create__header-container,
+.topics-create__item-container,
+.users-index__header-container,
+.users-index__item-container,
+.users-edit__header-container,
+.users-edit__item-container,
+.users-create__header-container,
+.users-create__item-container,
+.posts-index__header-container,
+.posts-index__item-container,
+.posts-edit__header-container,
+.posts-edit__item-container,
+.posts-create__header-container,
+.posts-create__item-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.1fr 1fr 0.5fr 0.4fr 0.5fr 0.3fr;
+  gap: 20px;
+}
+.posts__item-container--posts, .posts__header-container--posts,
+.admin-form__item-container--posts,
+.admin-form__header-container--posts,
+.topics-index__item-container--posts,
+.topics-index__header-container--posts,
+.topics-edit__item-container--posts,
+.topics-edit__header-container--posts,
+.topics-create__item-container--posts,
+.topics-create__header-container--posts,
+.users-index__item-container--posts,
+.users-index__header-container--posts,
+.users-edit__item-container--posts,
+.users-edit__header-container--posts,
+.users-create__item-container--posts,
+.users-create__header-container--posts,
+.posts-index__item-container--posts,
+.posts-index__header-container--posts,
+.posts-edit__item-container--posts,
+.posts-edit__header-container--posts,
+.posts-create__item-container--posts,
+.posts-create__header-container--posts {
+  grid-template-columns: 0.1fr 1fr 0.5fr 0.6fr 0.2fr 0.2fr 0.3fr;
+}
+.posts__header-container--topics, .posts__item-container--topics,
+.admin-form__header-container--topics,
+.admin-form__item-container--topics,
+.topics-index__header-container--topics,
+.topics-index__item-container--topics,
+.topics-edit__header-container--topics,
+.topics-edit__item-container--topics,
+.topics-create__header-container--topics,
+.topics-create__item-container--topics,
+.users-index__header-container--topics,
+.users-index__item-container--topics,
+.users-edit__header-container--topics,
+.users-edit__item-container--topics,
+.users-create__header-container--topics,
+.users-create__item-container--topics,
+.posts-index__header-container--topics,
+.posts-index__item-container--topics,
+.posts-edit__header-container--topics,
+.posts-edit__item-container--topics,
+.posts-create__header-container--topics,
+.posts-create__item-container--topics {
+  grid-template-columns: 0.1fr 1fr 1fr 0.3fr 0.3fr;
+}
+.posts__header-container--users, .posts__item-container--users,
+.admin-form__header-container--users,
+.admin-form__item-container--users,
+.topics-index__header-container--users,
+.topics-index__item-container--users,
+.topics-edit__header-container--users,
+.topics-edit__item-container--users,
+.topics-create__header-container--users,
+.topics-create__item-container--users,
+.users-index__header-container--users,
+.users-index__item-container--users,
+.users-edit__header-container--users,
+.users-edit__item-container--users,
+.users-create__header-container--users,
+.users-create__item-container--users,
+.posts-index__header-container--users,
+.posts-index__item-container--users,
+.posts-edit__header-container--users,
+.posts-edit__item-container--users,
+.posts-create__header-container--users,
+.posts-create__item-container--users {
+  grid-template-columns: 0.1fr 1fr 1fr 0.3fr 0.1fr 0.1fr;
+}
+.posts__header-el,
+.admin-form__header-el,
+.topics-index__header-el,
+.topics-edit__header-el,
+.topics-create__header-el,
+.users-index__header-el,
+.users-edit__header-el,
+.users-create__header-el,
+.posts-index__header-el,
+.posts-edit__header-el,
+.posts-create__header-el {
+  font-size: var(--text-size-smal);
+  color: var(--white-color);
+  cursor: default;
+}
+.posts__header-el-btn,
+.admin-form__header-el-btn,
+.topics-index__header-el-btn,
+.topics-edit__header-el-btn,
+.topics-create__header-el-btn,
+.users-index__header-el-btn,
+.users-edit__header-el-btn,
+.users-create__header-el-btn,
+.posts-index__header-el-btn,
+.posts-edit__header-el-btn,
+.posts-create__header-el-btn {
+  font-size: var(--text-size-smal);
+  color: var(--white-color);
+}
+.posts__items,
+.admin-form__items,
+.topics-index__items,
+.topics-edit__items,
+.topics-create__items,
+.users-index__items,
+.users-edit__items,
+.users-create__items,
+.posts-index__items,
+.posts-edit__items,
+.posts-create__items {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.posts__item,
+.admin-form__item,
+.topics-index__item,
+.topics-edit__item,
+.topics-create__item,
+.users-index__item,
+.users-edit__item,
+.users-create__item,
+.posts-index__item,
+.posts-edit__item,
+.posts-create__item {
+  padding: 10px 0px;
+  width: 100%;
+  border-bottom: 1px var(--second-color) solid;
+}
+.posts__item-el,
+.admin-form__item-el,
+.topics-index__item-el,
+.topics-edit__item-el,
+.topics-create__item-el,
+.users-index__item-el,
+.users-edit__item-el,
+.users-create__item-el,
+.posts-index__item-el,
+.posts-edit__item-el,
+.posts-create__item-el {
+  font-size: var(--text-size-smal);
+  color: var(--white-color);
+}
+.posts__item-el-link,
+.admin-form__item-el-link,
+.topics-index__item-el-link,
+.topics-edit__item-el-link,
+.topics-create__item-el-link,
+.users-index__item-el-link,
+.users-edit__item-el-link,
+.users-create__item-el-link,
+.posts-index__item-el-link,
+.posts-edit__item-el-link,
+.posts-create__item-el-link {
+  font-size: var(--text-size-smal);
+  color: var(--white-color);
+}
+.posts__form,
+.admin-form__form,
+.topics-index__form,
+.topics-edit__form,
+.topics-create__form,
+.users-index__form,
+.users-edit__form,
+.users-create__form,
+.posts-index__form,
+.posts-edit__form,
+.posts-create__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border-radius: 8px;
+  gap: 20px;
+}
+.posts__form-heading,
+.admin-form__form-heading,
+.topics-index__form-heading,
+.topics-edit__form-heading,
+.topics-create__form-heading,
+.users-index__form-heading,
+.users-edit__form-heading,
+.users-create__form-heading,
+.posts-index__form-heading,
+.posts-edit__form-heading,
+.posts-create__form-heading {
+  font-size: var(--text-size-middle);
+  text-align: center;
+}
+.posts__form-box,
+.admin-form__form-box,
+.topics-index__form-box,
+.topics-edit__form-box,
+.topics-create__form-box,
+.users-index__form-box,
+.users-edit__form-box,
+.users-create__form-box,
+.posts-index__form-box,
+.posts-edit__form-box,
+.posts-create__form-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 15px;
+}
+.posts__form-btns,
+.admin-form__form-btns,
+.topics-index__form-btns,
+.topics-edit__form-btns,
+.topics-create__form-btns,
+.users-index__form-btns,
+.users-edit__form-btns,
+.users-create__form-btns,
+.posts-index__form-btns,
+.posts-edit__form-btns,
+.posts-create__form-btns {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.posts__form-btn,
+.admin-form__form-btn,
+.topics-index__form-btn,
+.topics-edit__form-btn,
+.topics-create__form-btn,
+.users-index__form-btn,
+.users-edit__form-btn,
+.users-create__form-btn,
+.posts-index__form-btn,
+.posts-edit__form-btn,
+.posts-create__form-btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: var(--second-color);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.posts__form-btn:hover,
+.admin-form__form-btn:hover,
+.topics-index__form-btn:hover,
+.topics-edit__form-btn:hover,
+.topics-create__form-btn:hover,
+.users-index__form-btn:hover,
+.users-edit__form-btn:hover,
+.users-create__form-btn:hover,
+.posts-index__form-btn:hover,
+.posts-edit__form-btn:hover,
+.posts-create__form-btn:hover {
+  background-color: var(--fourth-color);
+}
+.posts__form-box--checkbox,
+.admin-form__form-box--checkbox,
+.topics-index__form-box--checkbox,
+.topics-edit__form-box--checkbox,
+.topics-create__form-box--checkbox,
+.users-index__form-box--checkbox,
+.users-edit__form-box--checkbox,
+.users-create__form-box--checkbox,
+.posts-index__form-box--checkbox,
+.posts-edit__form-box--checkbox,
+.posts-create__form-box--checkbox {
+  display: flex;
+  flex-direction: row;
+}
+.posts__form-input--checkbox,
+.admin-form__form-input--checkbox,
+.topics-index__form-input--checkbox,
+.topics-edit__form-input--checkbox,
+.topics-create__form-input--checkbox,
+.users-index__form-input--checkbox,
+.users-edit__form-input--checkbox,
+.users-create__form-input--checkbox,
+.posts-index__form-input--checkbox,
+.posts-edit__form-input--checkbox,
+.posts-create__form-input--checkbox {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+.posts__form-input, .posts__form-textarea,
+.admin-form__form-input,
+.admin-form__form-textarea,
+.topics-index__form-input,
+.topics-index__form-textarea,
+.topics-edit__form-input,
+.topics-edit__form-textarea,
+.topics-create__form-input,
+.topics-create__form-textarea,
+.users-index__form-input,
+.users-index__form-textarea,
+.users-edit__form-input,
+.users-edit__form-textarea,
+.users-create__form-input,
+.users-create__form-textarea,
+.posts-index__form-input,
+.posts-index__form-textarea,
+.posts-edit__form-input,
+.posts-edit__form-textarea,
+.posts-create__form-input,
+.posts-create__form-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: var(--white-color);
+  font-size: var(--text-size-small);
+}
+.posts__form-textarea,
+.admin-form__form-textarea,
+.topics-index__form-textarea,
+.topics-edit__form-textarea,
+.topics-create__form-textarea,
+.users-index__form-textarea,
+.users-edit__form-textarea,
+.users-create__form-textarea,
+.posts-index__form-textarea,
+.posts-edit__form-textarea,
+.posts-create__form-textarea {
+  min-height: 300px;
+}
+.posts__form-input:focus, .posts__form-textarea:focus,
+.admin-form__form-input:focus,
+.admin-form__form-textarea:focus,
+.topics-index__form-input:focus,
+.topics-index__form-textarea:focus,
+.topics-edit__form-input:focus,
+.topics-edit__form-textarea:focus,
+.topics-create__form-input:focus,
+.topics-create__form-textarea:focus,
+.users-index__form-input:focus,
+.users-index__form-textarea:focus,
+.users-edit__form-input:focus,
+.users-edit__form-textarea:focus,
+.users-create__form-input:focus,
+.users-create__form-textarea:focus,
+.posts-index__form-input:focus,
+.posts-index__form-textarea:focus,
+.posts-edit__form-input:focus,
+.posts-edit__form-textarea:focus,
+.posts-create__form-input:focus,
+.posts-create__form-textarea:focus {
+  border-color: var(--fourth-color);
+}
+.posts__form-select,
+.admin-form__form-select,
+.topics-index__form-select,
+.topics-edit__form-select,
+.topics-create__form-select,
+.users-index__form-select,
+.users-edit__form-select,
+.users-create__form-select,
+.posts-index__form-select,
+.posts-edit__form-select,
+.posts-create__form-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: var(--text-size-small);
+  color: var(--white-color);
+  background-color: inherit;
+  outline: none;
+}
+.posts__form-select:focus,
+.admin-form__form-select:focus,
+.topics-index__form-select:focus,
+.topics-edit__form-select:focus,
+.topics-create__form-select:focus,
+.users-index__form-select:focus,
+.users-edit__form-select:focus,
+.users-create__form-select:focus,
+.posts-index__form-select:focus,
+.posts-edit__form-select:focus,
+.posts-create__form-select:focus {
+  border-color: var(--fourth-color);
+  color: var(--white-color);
+}
+.posts__form-input[type=file],
+.admin-form__form-input[type=file],
+.topics-index__form-input[type=file],
+.topics-edit__form-input[type=file],
+.topics-create__form-input[type=file],
+.users-index__form-input[type=file],
+.users-edit__form-input[type=file],
+.users-create__form-input[type=file],
+.posts-index__form-input[type=file],
+.posts-edit__form-input[type=file],
+.posts-create__form-input[type=file] {
+  padding: 8px;
+  font-size: var(--text-size-small);
+  border-radius: 4px;
+  background-color: inherit;
+  cursor: pointer;
+}
+.posts__form-input[type=file]:focus,
+.admin-form__form-input[type=file]:focus,
+.topics-index__form-input[type=file]:focus,
+.topics-edit__form-input[type=file]:focus,
+.topics-create__form-input[type=file]:focus,
+.users-index__form-input[type=file]:focus,
+.users-edit__form-input[type=file]:focus,
+.users-create__form-input[type=file]:focus,
+.posts-index__form-input[type=file]:focus,
+.posts-edit__form-input[type=file]:focus,
+.posts-create__form-input[type=file]:focus {
+  border-color: var(--fourth-color);
+}
+.posts__form-submit,
+.admin-form__form-submit,
+.topics-index__form-submit,
+.topics-edit__form-submit,
+.topics-create__form-submit,
+.users-index__form-submit,
+.users-edit__form-submit,
+.users-create__form-submit,
+.posts-index__form-submit,
+.posts-edit__form-submit,
+.posts-create__form-submit {
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: var(--second-color);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.posts__form-submit:hover,
+.admin-form__form-submit:hover,
+.topics-index__form-submit:hover,
+.topics-edit__form-submit:hover,
+.topics-create__form-submit:hover,
+.users-index__form-submit:hover,
+.users-edit__form-submit:hover,
+.users-create__form-submit:hover,
+.posts-index__form-submit:hover,
+.posts-edit__form-submit:hover,
+.posts-create__form-submit:hover {
+  background-color: var(--fourth-color);
+}
+.posts__form-preview,
+.admin-form__form-preview,
+.topics-index__form-preview,
+.topics-edit__form-preview,
+.topics-create__form-preview,
+.users-index__form-preview,
+.users-edit__form-preview,
+.users-create__form-preview,
+.posts-index__form-preview,
+.posts-edit__form-preview,
+.posts-create__form-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.posts__popup,
+.admin-form__popup,
+.topics-index__popup,
+.topics-edit__popup,
+.topics-create__popup,
+.users-index__popup,
+.users-edit__popup,
+.users-create__popup,
+.posts-index__popup,
+.posts-edit__popup,
+.posts-create__popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.posts__popup-close,
+.admin-form__popup-close,
+.topics-index__popup-close,
+.topics-edit__popup-close,
+.topics-create__popup-close,
+.users-index__popup-close,
+.users-edit__popup-close,
+.users-create__popup-close,
+.posts-index__popup-close,
+.posts-edit__popup-close,
+.posts-create__popup-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.posts__popup-close:hover, .posts__popup-close:focus,
+.admin-form__popup-close:hover,
+.admin-form__popup-close:focus,
+.topics-index__popup-close:hover,
+.topics-index__popup-close:focus,
+.topics-edit__popup-close:hover,
+.topics-edit__popup-close:focus,
+.topics-create__popup-close:hover,
+.topics-create__popup-close:focus,
+.users-index__popup-close:hover,
+.users-index__popup-close:focus,
+.users-edit__popup-close:hover,
+.users-edit__popup-close:focus,
+.users-create__popup-close:hover,
+.users-create__popup-close:focus,
+.posts-index__popup-close:hover,
+.posts-index__popup-close:focus,
+.posts-edit__popup-close:hover,
+.posts-edit__popup-close:focus,
+.posts-create__popup-close:hover,
+.posts-create__popup-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+.posts__popup-img,
+.admin-form__popup-img,
+.topics-index__popup-img,
+.topics-edit__popup-img,
+.topics-create__popup-img,
+.users-index__popup-img,
+.users-edit__popup-img,
+.users-create__popup-img,
+.posts-index__popup-img,
+.posts-edit__popup-img,
+.posts-create__popup-img {
+  margin: auto;
+  display: block;
+  width: 80%;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.posts__gallery,
+.admin-form__gallery,
+.topics-index__gallery,
+.topics-edit__gallery,
+.topics-create__gallery,
+.users-index__gallery,
+.users-edit__gallery,
+.users-create__gallery,
+.posts-index__gallery,
+.posts-edit__gallery,
+.posts-create__gallery {
+  padding: 10%;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.33s;
+}
+.posts__gallery.active,
+.admin-form__gallery.active,
+.topics-index__gallery.active,
+.topics-edit__gallery.active,
+.topics-create__gallery.active,
+.users-index__gallery.active,
+.users-edit__gallery.active,
+.users-create__gallery.active,
+.posts-index__gallery.active,
+.posts-edit__gallery.active,
+.posts-create__gallery.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1111;
+}
+.posts__gallery-close,
+.admin-form__gallery-close,
+.topics-index__gallery-close,
+.topics-edit__gallery-close,
+.topics-create__gallery-close,
+.users-index__gallery-close,
+.users-edit__gallery-close,
+.users-create__gallery-close,
+.posts-index__gallery-close,
+.posts-edit__gallery-close,
+.posts-create__gallery-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.posts__gallery-close:hover, .posts__gallery-close:focus,
+.admin-form__gallery-close:hover,
+.admin-form__gallery-close:focus,
+.topics-index__gallery-close:hover,
+.topics-index__gallery-close:focus,
+.topics-edit__gallery-close:hover,
+.topics-edit__gallery-close:focus,
+.topics-create__gallery-close:hover,
+.topics-create__gallery-close:focus,
+.users-index__gallery-close:hover,
+.users-index__gallery-close:focus,
+.users-edit__gallery-close:hover,
+.users-edit__gallery-close:focus,
+.users-create__gallery-close:hover,
+.users-create__gallery-close:focus,
+.posts-index__gallery-close:hover,
+.posts-index__gallery-close:focus,
+.posts-edit__gallery-close:hover,
+.posts-edit__gallery-close:focus,
+.posts-create__gallery-close:hover,
+.posts-create__gallery-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+.posts__gallery-items,
+.admin-form__gallery-items,
+.topics-index__gallery-items,
+.topics-edit__gallery-items,
+.topics-create__gallery-items,
+.users-index__gallery-items,
+.users-edit__gallery-items,
+.users-create__gallery-items,
+.posts-index__gallery-items,
+.posts-edit__gallery-items,
+.posts-create__gallery-items {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 10px;
+  justify-content: center;
+}
+.posts__gallery-item,
+.admin-form__gallery-item,
+.topics-index__gallery-item,
+.topics-edit__gallery-item,
+.topics-create__gallery-item,
+.users-index__gallery-item,
+.users-edit__gallery-item,
+.users-create__gallery-item,
+.posts-index__gallery-item,
+.posts-edit__gallery-item,
+.posts-create__gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  max-width: 200px;
+}
+.posts__gallery-item-img,
+.admin-form__gallery-item-img,
+.topics-index__gallery-item-img,
+.topics-edit__gallery-item-img,
+.topics-create__gallery-item-img,
+.users-index__gallery-item-img,
+.users-edit__gallery-item-img,
+.users-create__gallery-item-img,
+.posts-index__gallery-item-img,
+.posts-edit__gallery-item-img,
+.posts-create__gallery-item-img {
+  width: 100%;
+  height: 80%;
+  padding-bottom: 15px;
+}
+.posts__gallery-item-span,
+.admin-form__gallery-item-span,
+.topics-index__gallery-item-span,
+.topics-edit__gallery-item-span,
+.topics-create__gallery-item-span,
+.users-index__gallery-item-span,
+.users-edit__gallery-item-span,
+.users-create__gallery-item-span,
+.posts-index__gallery-item-span,
+.posts-edit__gallery-item-span,
+.posts-create__gallery-item-span {
+  height: -moz-fit-content;
+  height: fit-content;
+}/*# sourceMappingURL=admin-styles.css.map */

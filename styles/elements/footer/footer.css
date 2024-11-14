@@ -1,0 +1,20 @@
+.footer {
+  padding: 15px 0px 15px 0px;
+}
+.footer__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer__logo {
+  font-family: var(--title-font-family);
+  font-size: var(--text-size-big);
+}
+.footer__menu-items {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.footer__menu-item-link {
+  font-size: var(--text-size-middle);
+}/*# sourceMappingURL=footer.css.map */
