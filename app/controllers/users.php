@@ -34,6 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])) {
     $username = trim($_POST['username']);
     $passwordFirst = trim($_POST['password-first']);
     $passwordSecond = trim($_POST['password-second']);
+    if(isset($_POST['g-recaptcha-response'])) {
+        $google_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LfYz34qAAAAALSClri5BxL-BlODejTmH0spAHqI&response=' . stripslashes($_POST['g-recaptcha-response']));
+        $decoded_response = json_decode($google_response, true);
+        if(!$decoded_response['success']) {
+            array_push($errorMsg, 'Вы не прошли проверку Google Recaptcha');
+        }
+    }
 
     // Проверка на пустые поля
     if ($email === '') {
@@ -116,6 +123,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-login'])) {
 
     if ($password === '') {
         array_push($errorMsg, 'Поле "Пароль" не должно быть пустым.');
+    }
+
+    if(isset($_POST['g-recaptcha-response'])) {
+        $google_response = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LfYz34qAAAAALSClri5BxL-BlODejTmH0spAHqI&response=' . stripslashes($_POST['g-recaptcha-response']));
+        $decoded_response = json_decode($google_response, true);
+        if(!$decoded_response['success']) {
+            array_push($errorMsg, 'Вы не прошли проверку Google Recaptcha');
+        }
     }
 
     // Если нет ошибок, проверяем пользователя

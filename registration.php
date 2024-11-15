@@ -12,6 +12,7 @@ include("./app/controllers/users.php");
     <title>Регистрация</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon.png" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfYz34qAAAAAMb8qBGVcCxr88z6-3S4QSaSSWUQ"></script>
 </head>
 
 <body>

@@ -31,6 +31,7 @@ include(ROOT_PATH . '/pass.php');
                 name="password-second" required />
 
             <div class="form__footer form-registration__footer">
+                <input type="hidden" name="g-recaptcha-response" id="agr-recaptcha-response" value="" />
                 <button type="submit" name="button-reg" class="form__submit form-registration__submit">
                     Зарегистрироваться
                 </button>
@@ -41,3 +42,10 @@ include(ROOT_PATH . '/pass.php');
 </section>
 
 <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+
+<script>
+    grecaptcha.enterprise.ready(async () => {
+        const token = await grecaptcha.enterprise.execute('6LfYz34qAAAAAMb8qBGVcCxr88z6-3S4QSaSSWUQ', {action: 'submit'});
+        document.getElementById('agr-recaptcha-response').value = token;
+    });
+</script>

@@ -17,9 +17,16 @@
             <input class="form__input form-registration__input" type="password" id="password" name="password" />
 
             <div class="form__footer form-login__footer">
+                <input type="hidden" name="g-recaptcha-response" id="agr-recaptcha-response" value="" />
                 <button type="submit" name="button-login" class="form__submit form-login__submit">Войти</button>
                 <a href="/registration.php" class="login__link">Зарегистрироваться</a>
             </div>
         </form>
     </div>
 </section>
+<script>
+    grecaptcha.enterprise.ready(async () => {
+        const token = await grecaptcha.enterprise.execute('6LfYz34qAAAAAMb8qBGVcCxr88z6-3S4QSaSSWUQ', {action: 'submit'});
+        document.getElementById('agr-recaptcha-response').value = token;
+    });
+</script>
