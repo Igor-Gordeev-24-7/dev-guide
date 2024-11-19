@@ -30,7 +30,7 @@ $images = is_dir($directory) ? scandir($directory) : [];
 
 <body>
     <!-- header -->
-    <?php include("../../app/include/admin-include/admin-header-el.php"); ?>
+    <?php include("../../app/include/header-el.php"); ?>
 
     <!-- main -->
     <main class="main">
