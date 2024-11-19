@@ -93,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
 }
 
 // Получение данных поста по его id
-// Получение данных поста по его id
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $id = $_GET['id'];
 

@@ -224,7 +224,7 @@ function update($table, $id, $params) {
     $sql = "UPDATE $table SET $str WHERE id = :id";
 
     // Выводим SQL-запрос для проверки
-    echo "Сформированный SQL-запрос: " . $sql . "<br>";
+    // echo "Сформированный SQL-запрос: " . $sql . "<br>";
 
     // Подготавливаем SQL-запрос через PDO
     $query = $pdo->prepare($sql);
