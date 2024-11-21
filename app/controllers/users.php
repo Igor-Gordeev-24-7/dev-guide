@@ -102,12 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])) {
     $username = '';
 }
 
-
-
-
-
-
-
 // Код для формы входа
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-login'])) {
     $email = trim($_POST['email']);

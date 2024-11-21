@@ -55,7 +55,7 @@ include("./app/controllers/users.php");
     <!-- footer -->
     <?php include("./app/include/footer-el.php"); ?>
 
-    <script src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/script.js"></script>
 
     <script>
     grecaptcha.enterprise.ready(async () => {

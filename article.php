@@ -114,7 +114,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' ||$_SERVER['REQUEST_METHOD'] === 'POST'
 
     <!-- footer -->
     <?php include("./app/include/footer-el.php"); ?>
+
     <script type="module" src="./scripts/script.js"></script>
+
     <script src="../../scripts/popup-image-preview.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" defer></script>
     <script>

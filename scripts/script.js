@@ -1,6 +1,6 @@
 console.log("1");
 
-export const BASE_URL = "http://localhost:8888/";
+export const BASE_URL = "https://dev-guide.ru/";
 
 document.addEventListener("DOMContentLoaded", function () {
   // Находим все элементы с классом 'submenu-open-el'

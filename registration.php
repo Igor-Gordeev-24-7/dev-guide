@@ -69,6 +69,7 @@ include("./app/controllers/users.php");
     <?php include("./app/include/footer-el.php"); ?>
 
     <script type="module" src="./scripts/script.js"></script>
+
     <script>
     grecaptcha.enterprise.ready(async () => {
         const token = await grecaptcha.enterprise.execute('6LfYz34qAAAAAMb8qBGVcCxr88z6-3S4QSaSSWUQ', {

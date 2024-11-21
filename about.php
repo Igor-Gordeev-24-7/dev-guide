@@ -1,10 +1,54 @@
-<?php 
+<?php
+session_start();
 include("./pass.php");
-include("./app/controllers/users.php"); 
+include("./app/database/db.php");
+
+$feedback = ''; // Переменная для хранения сообщения об ошибке или успехе
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $recaptchaToken = $_POST['g-recaptcha-response'] ?? '';
+    $secret = '6Ld604UqAAAAADkWqHZS-paZ17_I-XUqcuSUM832'; // Ваш секретный ключ reCAPTCHA
+
+    if (!empty($recaptchaToken)) {
+        $url = "https://www.google.com/recaptcha/api/siteverify";
+        $data = [
+            'secret' => $secret,
+            'response' => $recaptchaToken,
+            'remoteip' => $_SERVER['REMOTE_ADDR']
+        ];
+
+        // Отправляем запрос к API reCAPTCHA
+        $options = [
+            'http' => [
+                'method' => 'POST',
+                'header' => 'Content-Type: application/x-www-form-urlencoded',
+                'content' => http_build_query($data)
+            ]
+        ];
+        $context = stream_context_create($options);
+        $response = file_get_contents($url, false, $context);
+        $result = json_decode($response, true);
+
+        if ($result['success'] && $result['score'] > 0.5) {
+            $fio = htmlspecialchars(trim($_POST['fio']));
+            $email = htmlspecialchars(trim($_POST['email']));
+            $message = htmlspecialchars(trim($_POST['message']));
+            if (mail("dev-guide@yandex.ru", "Заявка с сайта", "ФИО: $fio. E-mail: $email. Сообщение: $message", "From: info@satename.ru \r\n")) {
+                $feedback = "<p>Сообщение успешно отправлено!</p>";
+            } else {
+                $feedback = "<p>При отправке сообщения возникли ошибки.</p>";
+            }
+        } else {
+            // $feedback = "<p>Проверка reCAPTCHA не пройдена. Попробуйте позже.</p>";
+        }
+    } else {
+        $feedback = "<p>Ошибка проверки reCAPTCHA. Попробуйте еще раз.</p>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8" />
@@ -12,8 +56,7 @@ include("./app/controllers/users.php");
     <title>О сайте</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon.png" />
     <link rel="stylesheet" href="./styles/style.css" />
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfYz34qAAAAAMb8qBGVcCxr88z6-3S4QSaSSWUQ">
-    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld604UqAAAAAK2PvVQPV9Mb7yyb1vWwSIj6W1OQ"></script>
 </head>
 
 <body>
@@ -22,26 +65,56 @@ include("./app/controllers/users.php");
 
     <!-- main -->
     <main class="main">
-
-        <!-- about -->
-        <div class="about">
+        <section class="about">
             <div class="about__wrapper wrapper">
+                <h1 class="about__heading">О проекте</h1>
 
+                <p class="about__text">
+                    Суть проекта, сохранить полученные навыки программирования, разработки, и
+                    поделиться со всеми кто столкнувшимися со схожими проблемами или проектами.
+                </p>
                 <div class="about__container">
+                    <!-- Форма -->
+                    <form action="about.php" method="post" class="about__form" id="contact-form">
+                        <h2 class="about__form-heading">Связь с администрацией</h2>
 
+                        <!-- Вывод сообщений -->
+                        <?php if ($feedback): ?>
+                        <div class="feedback">
+                            <?= $feedback; ?>
+                        </div>
+                        <?php endif; ?>
 
-
+                        <input class="about__input" placeholder="Ваше имя" type="text" name="fio" required>
+                        <input class="about__input" placeholder="Ваш e-mail" type="email" name="email">
+                        <textarea class="about__textarea" name="message" cols="50" rows="10"
+                            placeholder="Ваше сообщение сюда..."></textarea>
+                        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+                        <input class="about__input-submit" type="submit" value="Отправить">
+                    </form>
                 </div>
-
             </div>
-        </div>
-
+        </section>
     </main>
 
     <!-- footer -->
     <?php include("./app/include/footer-el.php"); ?>
 
-    <script src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/script.js"></script>
+
+    <script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Ld604UqAAAAAK2PvVQPV9Mb7yyb1vWwSIj6W1OQ', {
+                action: 'submit'
+            }).then(function(token) {
+                document.getElementById('g-recaptcha-response').value = token;
+                event.target.submit();
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>

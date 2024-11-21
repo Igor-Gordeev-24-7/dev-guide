@@ -118,7 +118,8 @@ $defaultImagePath = IMAGE_PATH . 'default.webp';
     <!-- footer -->
     <?php include("./app/include/footer-el.php"); ?>
 
-    <script module src="./scripts/script.js"></script>
+    <script type="module" src="./scripts/script.js"></script>
+
 </body>
 
 </html>

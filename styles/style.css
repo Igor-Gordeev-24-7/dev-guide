@@ -8,6 +8,7 @@
 @import url(./elements/form/form.css);
 @import url(./elements/info-column/info-column.css);
 @import url(./elements/topics/topics.css);
+@import url(./elements/about/about.css);
 @import url(./elements/footer/footer.css);
 @import url(./admin-elements/admin-styles/admin-styles.css);
 @import url(./admin-elements/images-index/images-index.css);
@@ -81,4 +82,15 @@ main {
 /* Стили для горизонтального скроллбара */
 ::-webkit-scrollbar-horizontal {
   height: 8px;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    max-width: 950px;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper {
+    max-width: 700px;
+  }
 }/*# sourceMappingURL=style.css.map */

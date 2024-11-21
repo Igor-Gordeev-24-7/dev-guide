@@ -15,7 +15,7 @@ include(ROOT_PATH . '/pass.php');
                 </li>
 
                 <li class="header__menu-item">
-                    <a href="#" class="header__menu-item-link">О проекте</a>
+                    <a href="<?php echo BASE_URL; ?>about.php" class="header__menu-item-link">О проекте</a>
                 </li>
                 <li class="header__menu-item submenu-open-el">
 
