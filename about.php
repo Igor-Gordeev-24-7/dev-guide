@@ -56,7 +56,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>О сайте</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon.png" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <meta name="description"
+        content="О сайте Dev-Guide: подробная информация о проекте, его целях и миссии. Свяжитесь с администрацией через удобную форму обратной связи.">
+    <meta name="keywords"
+        content="о сайте Dev-Guide, информация о проекте, связь с администрацией, контакты, веб-разработка, поддержка пользователей, Dev-Guide">
+    <meta name="author" content="Dev-Guide Team">
     <script src="https://www.google.com/recaptcha/api.js?render=6Ld604UqAAAAAK2PvVQPV9Mb7yyb1vWwSIj6W1OQ"></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function(m, e, t, r, i, k, a) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) {
+                return;
+            }
+        }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(
+            k, a)
+    })
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99007405, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true
+    });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/99007405" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>
@@ -67,12 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="main">
         <section class="about">
             <div class="about__wrapper wrapper">
+
                 <h1 class="about__heading">О проекте</h1>
 
                 <p class="about__text">
                     Суть проекта, сохранить полученные навыки программирования, разработки, и
                     поделиться со всеми кто столкнувшимися со схожими проблемами или проектами.
                 </p>
+
                 <div class="about__container">
                     <!-- Форма -->
                     <form action="about.php" method="post" class="about__form" id="contact-form">

@@ -32,6 +32,46 @@ $defaultImagePath = IMAGE_PATH . 'default.webp';
     <title>Поиск</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon.png" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <?php
+    // Генерация мета-тега description на основе поискового запроса
+    $description = "Результаты поиска";
+    if ($searchTerm) {
+        $description .= " для запроса «" . htmlspecialchars($searchTerm) . "»";
+    }
+    $description .= " на Dev-Guide: найдите статьи, скрипты и уроки по веб-разработке, которые вам нужны.";
+    ?>
+    <meta name="description" content="<?= $description; ?>">
+    <meta name="keywords"
+        content="поиск статей, поиск на Dev-Guide, веб-разработка, HTML, CSS, JavaScript, скрипты, уроки, курсы, программирование">
+    <meta name="author" content="Dev-Guide Team">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function(m, e, t, r, i, k, a) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) {
+                return;
+            }
+        }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(
+            k, a)
+    })
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99007405, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true
+    });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/99007405" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>

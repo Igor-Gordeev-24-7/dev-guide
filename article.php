@@ -57,6 +57,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' ||$_SERVER['REQUEST_METHOD'] === 'POST'
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <meta name="description"
+        content="Читать статью на Dev-Guide: полезные материалы, советы и скрипты для веб-разработчиков. Изучайте лучшие практики и прокачивайте свои навыки!">
+    <meta name="keywords"
+        content="статья, веб-разработка, Dev-Guide, программирование, HTML, CSS, JavaScript, советы разработчикам, лучшие практики, полезные скрипты, курсы, уроки">
+    <meta name="author" content="Dev-Guide Team">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function(m, e, t, r, i, k, a) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) {
+                return;
+            }
+        }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(
+            k, a)
+    })
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99007405, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true
+    });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/99007405" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 
 </head>
 

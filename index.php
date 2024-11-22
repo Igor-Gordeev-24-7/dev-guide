@@ -42,6 +42,38 @@ $totalPages = ceil(count($sortedPosts) / $postsPerPage); // Общее коли�
     <title>Главная</title>
     <link rel="icon" type="image/png" sizes="32x32" href="<?= BASE_URL . 'assets/icons/favicon.png' ?>" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <meta name="description"
+        content="Dev-Guide — ваш путеводитель в веб-разработке. Полезные скрипты, видеоуроки, курсы по HTML, CSS, JavaScript и другим технологиям. Учитесь, создавайте и развивайте свои навыки!">
+    <meta name="keywords"
+        content="веб-разработка, HTML, CSS, JavaScript, курсы программирования, видеоуроки, скрипты, программирование для начинающих, разработка сайтов, Dev-Guide, обучение программированию">
+    <meta name="author" content="Dev-Guide Team">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function(m, e, t, r, i, k, a) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) {
+                return;
+            }
+        }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(
+            k, a)
+    })
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99007405, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true
+    });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/99007405" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>

@@ -5,8 +5,17 @@ include(ROOT_PATH . '/pass.php');
 <header class="header" id="header">
     <div class="header__wrapper wrapper">
         <a href="<?php echo BASE_URL . 'index.php'; ?>" class="header__logo">/dev/guide/</a>
+
         <nav class="header__menu">
-            <ul class="header__menu-items">
+
+            <!-- Бургер-меню -->
+            <div class="header__burger-menu" id="header__burger-menu">
+                <span class="header__burger-icon"></span>
+                <span class="header__burger-icon"></span>
+                <span class="header__burger-icon"></span>
+            </div>
+
+            <ul class="header__menu-items" id="header__menu-items">
                 <li class="header__menu-item">
                     <a href="<?php echo BASE_URL; ?>" class="header__menu-item-link">Главная</a>
                 </li>
@@ -18,7 +27,6 @@ include(ROOT_PATH . '/pass.php');
                     <a href="<?php echo BASE_URL; ?>about.php" class="header__menu-item-link">О проекте</a>
                 </li>
                 <li class="header__menu-item submenu-open-el">
-
                     <?php if(isset($_SESSION['id'])): ?>
                     <a href="#" class="header__menu-item-link "> <?php echo $_SESSION['username']; ?></a>
 

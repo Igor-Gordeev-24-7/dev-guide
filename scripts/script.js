@@ -45,4 +45,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Закрываем подменю при уходе курсора
     el.addEventListener("mouseout", closeSubmenu);
   });
+
+  // Burger-menu
+  // Получаем элементы бургер-меню и меню
+  const burgerMenu = document.getElementById("header__burger-menu");
+  const menuItems = document.getElementById("header__menu-items");
+
+  // Обработчик клика
+  burgerMenu.addEventListener("click", () => {
+    // Переключаем классы активного состояния
+    burgerMenu.classList.toggle("active");
+    menuItems.classList.toggle("active");
+  });
 });
