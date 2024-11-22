@@ -90,9 +90,13 @@ include("../../app/controllers/posts.php");
                                 </div>
 
                                 <div class="posts-index__item-el">
-                                    <!-- Кнопка для удаления -->
-                                    <a href="posts-index.php?del_id=<?=$post['id']; ?>"
-                                        class="posts-index__item-el-link">delete</a>
+                                    <!-- Форма для удаления -->
+                                    <form action="posts-index.php" method="GET"
+                                        onsubmit="return confirm('Вы уверены, что хотите удалить этот пост?');">
+                                        <input type="hidden" name="del_id"
+                                            value="<?= htmlspecialchars($post['id']); ?>">
+                                        <button type="submit" class="posts-index__item-el-link">delete</button>
+                                    </form>
                                 </div>
 
                                 <div class="posts-index__item-el">
@@ -119,7 +123,6 @@ include("../../app/controllers/posts.php");
             </div>
 
         </section>
-
 
     </main>
 

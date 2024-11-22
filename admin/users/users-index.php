@@ -86,8 +86,12 @@ include('../../app/controllers/users.php');
                                         class="users-index__item-el-link">edit</a>
                                 </div>
                                 <div class="users-index__item-el">
-                                    <a href="users-edit.php?del_id=<?=$user['id']; ?>"
-                                        class="users-index__item-el-link">delite</a>
+                                    <form action="users-edit.php" method="GET"
+                                        onsubmit="return confirm('Вы уверены, что хотите удалить этого пользователя?');">
+                                        <input type="hidden" name="del_id"
+                                            value="<?= htmlspecialchars($user['id']); ?>">
+                                        <button type="submit" class="users-index__item-el-link">delite</button>
+                                    </form>
                                 </div>
                             </div>
 

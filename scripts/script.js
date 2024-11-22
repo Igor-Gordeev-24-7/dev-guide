@@ -3,6 +3,7 @@ console.log("1");
 export const BASE_URL = "https://dev-guide.ru/";
 
 document.addEventListener("DOMContentLoaded", function () {
+  // --------------------------------------------
   // Находим все элементы с классом 'submenu-open-el'
   const submenuOpenElements = document.querySelectorAll(".submenu-open-el");
 
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // --------------------------------------------
   // Функция для закрытия подменю
   function closeSubmenu(event) {
     // Находим подменю внутри текущего элемента
@@ -46,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     el.addEventListener("mouseout", closeSubmenu);
   });
 
+  // --------------------------------------------
   // Burger-menu
   // Получаем элементы бургер-меню и меню
   const burgerMenu = document.getElementById("header__burger-menu");
@@ -57,4 +60,5 @@ document.addEventListener("DOMContentLoaded", function () {
     burgerMenu.classList.toggle("active");
     menuItems.classList.toggle("active");
   });
+  // --------------------------------------------
 });

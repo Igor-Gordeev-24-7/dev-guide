@@ -115,7 +115,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-edit'])) {
 
 // Удаление категории
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['del_id'])) {
+
     $id = $_GET['del_id'];
+    
+    // Вызов функции delete для удаления записи из таблицы 'topics'
     delete('topics', $id);
 
     header("Location: " . BASE_URL . 'admin/topics/topics-index.php');

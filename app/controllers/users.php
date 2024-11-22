@@ -279,6 +279,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 // Удаление пользователя
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['del_id'])) {
     $id = $_GET['del_id'];
+    
     delete('users', $id);
 
     // Перенаправление на страницу списка пользователей

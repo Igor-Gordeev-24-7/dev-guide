@@ -85,7 +85,7 @@ include("../../app/controllers/topics.php");
                                         class="topics-index__item-el-link">edit</a>
                                 </div>
                                 <div class="topics-index__item-el">
-                                    <form action="topics-index.php" method="POST"
+                                    <form action="topics-index.php" method="GET"
                                         onsubmit="return confirm('Вы уверены, что хотите удалить эту категорию?');">
                                         <input type="hidden" name="del_id"
                                             value="<?= htmlspecialchars($topic['id']); ?>">
