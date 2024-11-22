@@ -280,9 +280,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['del_id'])) {
     $id = $_GET['del_id'];
     
+    // Удаляем пользователя из базы данных
     delete('users', $id);
 
-    // Перенаправление на страницу списка пользователей
-    header("Location: " . BASE_URL . 'admin/users/users-index.php');
-    exit();
+    // Разлогиниваем пользователя
+    session_unset();  // Удаляем все данные сессии
+    session_destroy(); // Уничтожаем сессию
+
+    // Перенаправляем на страницу входа или главную
+    header("Location: " . BASE_URL . 'login.php');
+    exit(); // Завершаем выполнение скрипта после перенаправления
 }

@@ -26,7 +26,7 @@ include(ROOT_PATH . '/pass.php');
                 <li class="header__menu-item">
                     <a href="<?php echo BASE_URL; ?>about.php" class="header__menu-item-link">О проекте</a>
                 </li>
-                <li class="header__menu-item submenu-open-el">
+                <!-- <li class="header__menu-item submenu-open-el">
                     <?php if(isset($_SESSION['id'])): ?>
                     <a href="#" class="header__menu-item-link "> <?php echo $_SESSION['username']; ?></a>
 
@@ -52,7 +52,7 @@ include(ROOT_PATH . '/pass.php');
                     </div>
 
                     <?php endif; ?>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>

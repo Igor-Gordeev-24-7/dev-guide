@@ -58,6 +58,12 @@ include("../../app/controllers/posts.php");
                                 value="<?= isset($_POST['description']) ? htmlspecialchars($_POST['description']) : '' ?>">
                         </div>
 
+                        <div class="posts-edit__form-box">
+                            <label class="posts-edit__form-label" for="posts-keywords">Ключевые слова для
+                                метатега</label>
+                            <input name="keywords" class="posts-edit__form-input" type="text" id="posts-keywords">
+                        </div>
+
                         <!-- Блок с добавлением разметки в textarea posts-popup-gallery-add-img-to-content-el -->
                         <?php include('../../app/include/admin-include/posts-box-content-el.php'); ?>
 

@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include(ROOT_PATH . '/pass.php');
-require_once __DIR__ . '/../database/db.php';
+include(ROOT_PATH . '/app/database/db.php');
 
 // Инициализация переменных
 $errorMsg = [];

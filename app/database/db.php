@@ -47,7 +47,6 @@ function dbCheckError($query) {
     // Если ошибок нет, возвращаем true
     return true;
 }
-
 /**
  * Функция для получения всех записей из указанной таблицы базы данных.
  *
@@ -134,13 +133,6 @@ function selectOne($table, $params = []) {
     // Возвращаем первую запись в виде ассоциативного массива
     return $query->fetch();
 }
-
-$param = [
-    'admin' => '0',
-    'password' => '55555',
-    'email' => '11111111111@mail.ru',
-];
-
 // Вставка строки в таблицу
 function insert($table, $params) {
     // Подключение глобальной переменной $pdo, представляющей подключение к базе данных
@@ -203,7 +195,6 @@ function insert($table, $params) {
     // Возврат id
     return $pdo->lastInsertId();
 }
-
 // Функция для обновления строки в таблице
 function update($table, $id, $params) {
     global $pdo;  // Используем глобальную переменную для доступа к PDO объекту
@@ -243,7 +234,6 @@ function update($table, $id, $params) {
     // Проверяем наличие ошибок
     dbCheckError($query);  // Вызов функции для проверки ошибок выполнения запроса
 }
-
 // Функция удаления
 function delete($table, $id) {
     global $pdo;
@@ -252,7 +242,6 @@ function delete($table, $id) {
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
 }
-
 // Выборка записей (posts) с автором в админку
 function selectAllFromPostsAWithAdmin($table1, $table2) {
     global $pdo; 
