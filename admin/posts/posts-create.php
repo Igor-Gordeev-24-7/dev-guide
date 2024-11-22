@@ -101,6 +101,7 @@ include("../../app/controllers/posts.php");
 
     </main>
 
+    <script type="module" src="../../scripts/script.js"></script>
     <!-- Скрипт добавления разметки в поле content -->
     <script type="module" src="../../scripts/add-el-to-post-content.js"></script>
     <!-- Скрипт активации popup и добавления разметки изображения в поле content -->

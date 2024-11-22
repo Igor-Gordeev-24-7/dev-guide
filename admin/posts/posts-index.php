@@ -107,6 +107,7 @@ include("../../app/controllers/posts.php");
                                 </div>
 
                             </div>
+
                         </div>
 
                         <?php endforeach; ?>

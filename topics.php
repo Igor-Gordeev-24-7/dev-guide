@@ -13,6 +13,9 @@ include('./app/controllers/topics.php');
     <title>Категории</title>
     <link rel="icon" type="image/png" sizes="32x32" href="<?= BASE_URL . 'assets/icons/favicon.png' ?>" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <meta name="description"
+        content="<?= htmlspecialchars($topic['description'] ?? 'Обсуждение на тему: ' . $topic['name']); ?>" />
+    <meta name="keywords" content="<?= htmlspecialchars($topic['keywords'] ?? 'тема, обсуждение, статьи'); ?>" />
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
     (function(m, e, t, r, i, k, a) {

@@ -108,6 +108,8 @@
 
     </main>
 
+
+    <script type="module" src="../../scripts/script.js"></script>
     <!-- Подключение модуля JavaScript для работы с галереей изображений и добавления выбранного изображения в контент -->
     <script type="module" src="../../scripts/posts-popup-gallery-add-img-to-content.js"></script>
     <!-- Подключение модуля JavaScript для добавления элементов (например, заголовков, ссылок, кода) в контент поста -->

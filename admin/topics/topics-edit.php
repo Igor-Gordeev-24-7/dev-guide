@@ -70,6 +70,13 @@
                                 id="topics-edit-content"><?=$description?></textarea>
                         </div>
 
+                        <div class="topics-edit__form-box">
+                            <label class="topics-edit__form-label" for="topics-edit-content">Ключевые слова для
+                                метатега</label>
+                            <input value="<?=$keywords?>" name="keywords" class="topics-edit__form-input" type="text"
+                                id="topics-edit-title">
+                        </div>
+
                         <button name="topic-edit" type="submit" class="topics-edit__form-submit">Редактировать
                             категорию</button>
                     </form>
@@ -83,7 +90,7 @@
 
     </main>
 
-    <script src="../../scripts/script.js"></script>
+    <script type="module" src="../../scripts/script.js"></script>
 </body>
 
 </html>

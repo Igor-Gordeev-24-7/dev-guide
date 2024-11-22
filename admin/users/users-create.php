@@ -91,7 +91,7 @@ include(ROOT_PATH . '/app/controllers/users.php');
 
     </main>
 
-    <script src="../../scripts/script.js"></script>
+    <script type="module" src="../../scripts/script.js"></script>
 </body>
 
 </html>

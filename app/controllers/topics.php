@@ -9,6 +9,7 @@ require_once __DIR__ . '/../database/db.php';
 $errorMsg = [];
 $name = '';
 $description = '';
+$keywords = ''; // Новая переменная
 $topics = selectAll("topics");
 
 // Код для формы создания категории
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-create'])) {
     // Сохраняем значения из формы
     $name = trim($_POST['name']);
     $description = trim($_POST['description']);
+    $keywords = trim($_POST['keywords']); // Новое поле
 
     // Проверки на ошибки
     if ($name === '') {
@@ -25,6 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-create'])) {
 
     if ($description === '') {
         array_push($errorMsg, 'Поле "Содержание" не должно быть пустым.');
+    }
+
+    if ($keywords === '') {
+        array_push($errorMsg, 'Поле "Ключевые слова" не должно быть пустым.');
     }
 
     if (mb_strlen($name, 'UTF8') < 3) {
@@ -44,13 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-create'])) {
         $topic = [
             'name' => $name,
             'description' => $description,
+            'keywords' => $keywords, // Новое поле
         ];
 
         $id = insert('topics', $topic);
-        $topic = selectOne('topics', ['id' => $id]);
-
         header("Location: " . BASE_URL . 'admin/topics/topics-index.php');
-        exit(); // Завершение выполнения скрипта
+        exit();
     }
 }
 
@@ -58,9 +63,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-create'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $id = $_GET['id'];
     $topic = selectOne('topics', ['id' => $id]);
+
+    // Получаем данные категории
     $id = $topic['id'];
     $name = $topic['name'];
     $description = $topic['description'];
+    $keywords = $topic['keywords']; // Новое поле
 }
 
 // Код для формы редактирования категории
@@ -68,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-edit'])) {
 
     // Сохраняем значения из формы
     $name = trim($_POST['name']);
-    $description = trim($_POST['description']); // Исправлена синтаксическая ошибка
+    $description = trim($_POST['description']);
+    $keywords = trim($_POST['keywords']); // Новое поле
 
     // Проверки на ошибки
     if ($name === '') {
@@ -79,11 +88,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-edit'])) {
         array_push($errorMsg, 'Поле "Содержание" не должно быть пустым.');
     }
 
+    if ($keywords === '') {
+        array_push($errorMsg, 'Поле "Ключевые слова" не должно быть пустым.');
+    }
+
     if (mb_strlen($name, 'UTF8') < 3) {
         array_push($errorMsg, 'Название категории не может быть короче 3-х символов.');
     }
-
-    $existence = selectOne('topics', ['name' => $name]);
 
     // Если ошибок нет, обновляем категорию
     if (count($errorMsg) === 0) {
@@ -91,13 +102,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-edit'])) {
         $topic = [
             'name' => $name,
             'description' => $description,
+            'keywords' => $keywords, // Новое поле
         ];
 
         $id = $_POST['id'];
         update('topics', $id, $topic);
 
         header("Location: " . BASE_URL . 'admin/topics/topics-index.php');
-        exit(); // Завершение выполнения скрипта
+        exit();
     }
 }
 

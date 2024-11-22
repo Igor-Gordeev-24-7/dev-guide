@@ -65,6 +65,12 @@
                                 id="topics-create-content"><?=$description?></textarea>
                         </div>
 
+                        <div class="topics-edit__form-box">
+                            <label class="topics-edit__form-label" for="topics-edit-content">Ключевые слова для
+                                метатега</label>
+                            <input name="keywords" class="topics-edit__form-input" type="text" id="topics-edit-title">
+                        </div>
+
                         <button name="topic-create" type="submit" class="topics-create__form-submit">Создать
                             категорию</button>
                     </form>
@@ -73,12 +79,11 @@
 
             </div>
 
-
         </section>
 
     </main>
 
-    <script src="../../scripts/script.js"></script>
+    <script type="module" src="../../scripts/script.js"></script>
 </body>
 
 </html>
