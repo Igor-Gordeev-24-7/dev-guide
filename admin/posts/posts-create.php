@@ -64,7 +64,7 @@ include("../../app/controllers/posts.php");
                             <input name="keywords" class="posts-edit__form-input" type="text" id="posts-keywords">
                         </div>
 
-                        <!-- Блок с добавлением разметки в textarea posts-popup-gallery-add-img-to-content-el -->
+                        <!-- Блок с добавлением разметки в textarea posts-box-content-el -->
                         <?php include('../../app/include/admin-include/posts-box-content-el.php'); ?>
 
                         <!-- Блок для работы с изображениями posts-create-form-box-img -->

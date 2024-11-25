@@ -1,3 +1,8 @@
+@charset "UTF-8";
+.article {
+  /* Сброс стилей для <pre> и <code> */
+  /* Стили для <code> внутри <pre> */
+}
 .article__wrapper {
   width: 100%;
   display: flex;
@@ -6,6 +11,7 @@
   justify-content: start;
 }
 .article__container {
+  max-width: 100%;
   padding-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -59,23 +65,62 @@
 }
 .article__content {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+  overflow-wrap: break-word; /* Убедитесь, что слова переносятся */
+  -webkit-hyphens: auto;
+          hyphens: auto; /* Автоматический перенос слов */
+  white-space: normal; /* Разрешить перенос строк */
+}
+.article__title {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  white-space: normal;
 }
 .article__subtitle {
   font-size: var(--third-title-size);
   color: var(--white-color);
   padding-bottom: 15px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  white-space: normal;
 }
 .article__text {
+  max-width: 100%;
   color: var(--white-color);
   font-size: var(--text-size-small);
   padding-bottom: 15px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  white-space: normal;
+}
+.article__code {
+  all: unset; /* Сбрасываем все стили */
+}
+.article__code code {
+  all: unset; /* Сбрасываем все стили */
 }
 .article__code {
   padding-bottom: 15px;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+  max-width: 100%; /* Устанавливаем максимальную ширину в пределах родителя */
+  overflow-x: auto; /* Включаем горизонтальный скролл, если содержимое больше ширины блока */
+  padding: 10px; /* Внутренний отступ для эстетики */
+  border-radius: 5px; /* Скругляем углы */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем лёгкую тень */
+}
+.article__code code {
+  display: block; /* Код занимает всю ширину блока */
+  font-family: monospace; /* Шрифт для кода */
+  font-size: 14px; /* Размер шрифта */
+  line-height: 1.5; /* Межстрочный интервал */
+  color: #333; /* Цвет текста */
+  white-space: pre; /* Сохраняем форматирование кода */
 }
 .article__link {
   color: var(--white-color);
@@ -128,5 +173,12 @@
   }
   to {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .article__img {
+    width: 100%;
+    height: auto;
   }
 }/*# sourceMappingURL=article.css.map */

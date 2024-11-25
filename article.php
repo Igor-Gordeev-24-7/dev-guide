@@ -1,7 +1,6 @@
 <?php 
 session_start();
 include("./pass.php");
-include("./app/database/db.php");
 include("./app/controllers/posts.php");
 
 // Получение данных поста по его id

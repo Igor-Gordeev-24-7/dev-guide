@@ -4,10 +4,15 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include('./app/database/connect.php');
+// Используем абсолютный путь для включения connect.php
+if (file_exists(__DIR__ . '/connect.php')) {
+    include(__DIR__ . '/connect.php');
+} else {
+    die('connect.php file not found');
+}
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set(option: 'display_errors', 1);
 
 // echo "db подключен";
 
