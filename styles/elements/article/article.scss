@@ -66,10 +66,10 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 20px;
-    overflow-wrap: break-word; /* Убедитесь, что слова переносятся */
-    hyphens: auto; /* Автоматический перенос слов */
-    white-space: normal; /* Разрешить перенос строк */
+    gap: 25px;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    white-space: normal;
   }
 
   &__title {
@@ -80,54 +80,57 @@
   }
 
   &__subtitle {
+    padding: 10px;
+    max-width: 100%;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(124, 124, 124, 0.314);
+    color: var(--white-color);
     font-size: var(--third-title-size);
     color: var(--white-color);
-    padding-bottom: 15px;
     overflow-wrap: break-word;
     hyphens: auto;
     white-space: normal;
   }
 
   &__text {
+    padding: 10px;
     max-width: 100%;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(124, 124, 124, 0.314);
     color: var(--white-color);
-    font-size: var(--text-size-small);
-    padding-bottom: 15px;
+    font-size: var(--text-size-second);
     overflow-wrap: break-word;
     hyphens: auto;
     white-space: normal;
+    line-height: 1.56;
   }
 
-  /* Сброс стилей для <pre> и <code> */
   &__code {
-    all: unset; /* Сбрасываем все стили */
-  }
-
-  /* Стили для <code> внутри <pre> */
-  &__code code {
-    all: unset; /* Сбрасываем все стили */
-  }
-  &__code {
-    padding-bottom: 15px;
-    max-width: 100%; /* Устанавливаем максимальную ширину в пределах родителя */
-    overflow-x: auto; /* Включаем горизонтальный скролл, если содержимое больше ширины блока */
-    padding: 10px; /* Внутренний отступ для эстетики */
-    border-radius: 5px; /* Скругляем углы */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Добавляем лёгкую тень */
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(124, 124, 124, 0.314);
   }
   &__code code {
-    display: block; /* Код занимает всю ширину блока */
-    font-family: monospace; /* Шрифт для кода */
-    font-size: 14px; /* Размер шрифта */
-    line-height: 1.5; /* Межстрочный интервал */
-    color: #333; /* Цвет текста */
-    white-space: pre; /* Сохраняем форматирование кода */
+    display: block;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre;
   }
   &__link {
-    color: var(--white-color);
-    // text-decoration: underline var(--white-color);
     transition: all 0.4s;
+    color: var(--white-color);
+    font-size: var(--text-size-second);
+    text-decoration: underline var(--white-color);
+    overflow-wrap: break-word;
+    hyphens: auto;
+    white-space: normal;
     word-wrap: break-word;
+    line-height: 1.56;
   }
   &__link:hover {
     color: var(--accent-color);

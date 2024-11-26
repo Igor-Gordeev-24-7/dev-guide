@@ -105,10 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addCodeEl.addEventListener("click", () => {
     showPopup("Код", [{ placeholder: "Введите код" }], (input) => {
+      const escapedInput = escapeHtml(input); // Экранируем HTML-символы
       const insertCode = `
 <pre class="article__code">
   <code>
-    ${input}
+    ${escapedInput}
   </code>
 </pre>
       `.trim(); // Удаляем лишние пробелы и переносы строк в начале и конце
@@ -125,5 +126,20 @@ document.addEventListener("DOMContentLoaded", () => {
     targetElement.selectionStart = targetElement.selectionEnd =
       cursorPosition + textToInsert.length;
     targetElement.focus();
+  }
+
+  // Функция для экранирования HTML-символов
+  function escapeHtml(str) {
+    return str.replace(
+      /[&<>"']/g,
+      (m) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        }[m])
+    );
   }
 });
