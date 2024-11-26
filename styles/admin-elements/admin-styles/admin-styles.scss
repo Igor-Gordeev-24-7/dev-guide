@@ -93,8 +93,6 @@
     font-size: var(--text-size-smal);
     color: var(--white-color);
   }
-  &__item-el--email {
-  }
   &__item-el-link {
     font-size: var(--text-size-smal);
     color: var(--white-color);
@@ -200,8 +198,6 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-  }
-  &__form-preview-text {
   }
   &__popup {
     display: none;

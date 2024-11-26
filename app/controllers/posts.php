@@ -9,6 +9,8 @@ include(ROOT_PATH . '/app/database/db.php');
 $errorMsg = [];
 $id = '';
 $title = '';
+$description = '';
+$keywords = ''; // Добавляем переменную для keywords
 $content = '';
 $topic = '';
 $img = '';
@@ -28,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
     // Получаем текстовые данные
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
+    $keywords = trim($_POST['keywords']); // Добавляем получение keywords
     $content = trim($_POST['content']);
     $postTopic = $_POST['topic'];
 
@@ -35,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
     $publish = isset($_POST['publish']) ? 1 : 0;
 
     // Проверка на ошибки в текстовых данных
-    if ($title === '' || $content === '' || $description === '') {
+    if ($title === '' || $content === '' || $description === '' || $keywords === '') {
         array_push($errorMsg, 'Не все поля заполнены!');
     }
     
@@ -78,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
         'id_user' => $_SESSION['id'],
         'title' => $title,
         'description' => $description,
+        'keywords' => $keywords, // Добавляем keywords
         'img' => $img, // Сохраняем путь к файлу в базу данных (новый или старый)
         'content' => $content,
         'status' => $publish,
@@ -105,6 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
         $id = $post['id'];
         $title = $post['title'];
         $description = $post['description'];
+        $keywords = $post['keywords']; // Добавляем keywords
         $content = $post['content'];
         $topic = $post['id_topic'];
         $img = $post['img'];
@@ -114,12 +119,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     }
 }
 
-
 // Код для формы редактирования поста
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
     // Получаем текстовые данные
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
+    $keywords = trim($_POST['keywords']); // Добавляем получение keywords
     $content = trim($_POST['content']);
     $postTopic = $_POST['topic'];
     $postId = $_POST['id']; // Получаем ID поста для редактирования
@@ -134,6 +139,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
 
     if ($description === '') {
         array_push($errorMsg, 'Поле "Описание" не должно быть пустым.');
+    }
+
+    if ($keywords === '') {
+        array_push($errorMsg, 'Поле "Ключевые слова" не должно быть пустым.');
     }
 
     if (mb_strlen($title, 'UTF8') < 7) {
@@ -176,6 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
             $post = [
                 'title' => $title,
                 'description' => $description,
+                'keywords' => $keywords, // Добавляем keywords
                 'img' => $img, // Используем новый или старый путь к изображению
                 'content' => $content,
                 'status' => $publish, // Используем переменную $publish
