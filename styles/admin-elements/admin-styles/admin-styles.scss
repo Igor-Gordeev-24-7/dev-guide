@@ -305,3 +305,73 @@
     height: fit-content;
   }
 }
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.33s;
+}
+
+.popup.hidden {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.popup__content {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 50%; /* Увеличиваем ширину контейнера */
+}
+
+.popup__close {
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  background: none;
+  border: none;
+  color: var(--white-color);
+  font-size: 90px;
+  cursor: pointer;
+}
+
+.popup__title {
+  margin-bottom: 15px;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.popup__textarea {
+  width: 100%;
+  padding: 15px; /* Увеличиваем вертикальный отступ */
+  margin-bottom: 15px; /* Увеличиваем отступ снизу */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px; /* Увеличиваем размер шрифта */
+  resize: vertical; /* Позволяет пользователю изменять размер textarea по вертикали */
+  min-height: 100px; /* Минимальная высота textarea */
+}
+
+.popup__submit {
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

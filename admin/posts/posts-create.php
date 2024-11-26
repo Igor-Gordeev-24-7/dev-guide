@@ -67,6 +67,19 @@ include("../../app/controllers/posts.php");
                         <!-- Блок с добавлением разметки в textarea posts-box-content-el -->
                         <?php include('../../app/include/admin-include/posts-box-content-el.php'); ?>
 
+                        <div id="popup" class="popup hidden">
+                            <div class="popup__content">
+                                <button id="popup-close" class="popup__close" type="button">×</button>
+                                <h3 id="popup-title" class="popup__title"></h3>
+                                <div id="popup-inputs" class="popup__inputs"></div>
+                                <button id="popup-submit" class="popup__submit" type="button">Добавить</button>
+                            </div>
+                        </div>
+
+
+                        <!-- Блок с добавлением разметки в textarea posts-box-content-el -->
+                        <?php include('../../app/include/admin-include/posts-box-content-el.php'); ?>
+
                         <!-- Блок для работы с изображениями posts-create-form-box-img -->
                         <?php include('../../app/include/admin-include/posts-form-box-img.php'); ?>
 
@@ -81,7 +94,7 @@ include("../../app/controllers/posts.php");
                                 <?php foreach ($topics as $key => $topic): ?>
                                 <option value="<?= $topic['id'] ?>"
                                     <?= (isset($_POST['topic']) && $_POST['topic'] == $topic['id']) ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($topic['name']) ?>
+                                    <?= htmlspecialchars(string: $topic['name']) ?>
                                 </option>
                                 <?php endforeach; ?>
                             </select>

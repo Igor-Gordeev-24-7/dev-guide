@@ -65,8 +65,17 @@
                                 id="posts-keywords">
                         </div>
 
-                        <!-- Блок с добавлением разметки в textarea posts-popup-gallery-add-img-to-content-el -->
+                        <!-- Блок с добавлением разметки в textarea posts-box-content-el -->
                         <?php include('../../app/include/admin-include/posts-box-content-el.php'); ?>
+
+                        <div id="popup" class="popup hidden">
+                            <div class="popup__content">
+                                <button id="popup-close" class="popup__close" type="button">×</button>
+                                <h3 id="popup-title" class="popup__title"></h3>
+                                <div id="popup-inputs" class="popup__inputs"></div>
+                                <button id="popup-submit" class="popup__submit" type="button">Добавить</button>
+                            </div>
+                        </div>
 
                         <!-- Блок для работы с изображениями posts-edit-form-box-img -->
                         <?php include('../../app/include/admin-include/posts-form-box-img.php'); ?>
