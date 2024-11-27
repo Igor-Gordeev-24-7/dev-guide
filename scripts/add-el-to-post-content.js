@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const addTextEl = document.getElementById("add-text");
   const addLinkEl = document.getElementById("add-link");
   const addCodeEl = document.getElementById("add-code");
+  const addYoutubeEl = document.getElementById("add-youtube");
+  const addRutubeEl = document.getElementById("add-rutube");
+  const addCodepenEl = document.getElementById("add-codepen");
 
   // Текстовое поле для вставки
   const postsContentEl = document.getElementById("posts-content");
@@ -117,6 +120,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  addYoutubeEl.addEventListener("click", () => {
+    showPopup(
+      "Видео YouTube",
+      [{ placeholder: "Введите ссылку на видео YouTube" }],
+      (input) => {
+        const insertYoutube = `
+<div class="article__iframe-container">
+  <iframe class="article__iframe-youtube" src="https://www.youtube.com/embed/${getYouTubeVideoId(
+    input
+  )}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+      `.trim(); // Удаляем лишние пробелы и переносы строк в начале и конце
+        insertTextAtCursor(postsContentEl, insertYoutube);
+      }
+    );
+  });
+
+  addRutubeEl.addEventListener("click", () => {
+    showPopup(
+      "Видео Rutube",
+      [{ placeholder: "Введите ссылку на видео Rutube" }],
+      (input) => {
+        const insertRutube = `
+<div class="article__iframe-container">
+  <iframe class="article__iframe-rutube" src="https://rutube.ru/play/embed/${getRutubeVideoId(
+    input
+  )}" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div>
+      `.trim(); // Удаляем лишние пробелы и переносы строк в начале и конце
+        insertTextAtCursor(postsContentEl, insertRutube);
+      }
+    );
+  });
+
+  addCodepenEl.addEventListener("click", () => {
+    showPopup(
+      "Codepen",
+      [{ placeholder: "Введите ссылку на Codepen" }],
+      (input) => {
+        const insertCodepen = `
+<iframe height="300" style="width: 100%;" scrolling="no" title="Codepen" src="${getCodepenEmbedUrl(
+          input
+        )}" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="${input}">Codepen</a> by <a href="https://codepen.io">Codepen</a>.
+</iframe>
+      `.trim(); // Удаляем лишние пробелы и переносы строк в начале и конце
+        insertTextAtCursor(postsContentEl, insertCodepen);
+      }
+    );
+  });
+
   // Функция для вставки текста в курсор
   function insertTextAtCursor(targetElement, textToInsert) {
     const cursorPosition = targetElement.selectionStart;
@@ -141,5 +195,33 @@ document.addEventListener("DOMContentLoaded", () => {
           "'": "&#39;",
         }[m])
     );
+  }
+
+  // Функция для получения ID видео с YouTube
+  function getYouTubeVideoId(url) {
+    const regex =
+      /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be\/|be\.com\/\S*(?:watch|embed)(?:(?:(?=\/[^&\s\?]+(?!\S))\/)|(?:\S*v=|v\/)))([^&\s\?]+)/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  }
+
+  // Функция для получения ID видео с Rutube
+  function getRutubeVideoId(url) {
+    const regex = /(?:https?:\/\/)?(?:www\.)?rutube\.ru\/video\/(\w+)\/?/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  }
+
+  // Функция для получения embed URL с Codepen
+  function getCodepenEmbedUrl(url) {
+    const regex =
+      /(?:https?:\/\/)?(?:www\.)?codepen\.io\/([^/]+)\/pen\/([^?]+)/;
+    const match = url.match(regex);
+    if (match) {
+      const username = match[1];
+      const penId = match[2];
+      return `https://codepen.io/${username}/embed/${penId}?default-tab=html%2Cresult`;
+    }
+    return null;
   }
 });

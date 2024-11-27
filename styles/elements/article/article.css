@@ -138,6 +138,18 @@
   width: 1000px;
   height: 562.5px;
 }
+.article__iframe-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+.article__iframe-youtube {
+  width: 100%;
+  height: 100%;
+}
+.article__iframe-rutube {
+  width: 100%;
+  height: 100%;
+}
 .article__popup {
   display: none;
   position: fixed;
@@ -184,5 +196,14 @@
   .article__img {
     width: 100%;
     height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .article__iframe-container {
+    width: 100%;
+  }
+  .article__iframe-youtube, .article__iframe-rutube {
+    width: 100%;
+    height: 100%;
   }
 }/*# sourceMappingURL=article.css.map */

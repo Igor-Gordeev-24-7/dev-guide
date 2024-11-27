@@ -105,38 +105,35 @@ $defaultImagePath = IMAGE_PATH . 'default.webp';
                                     ? IMAGE_PATH . htmlspecialchars($post['img']) 
                                     : $defaultImagePath;
                         ?>
-                            <a href="article.php?id=<?= $post['id']; ?>" class="render-articles__item-link">
-                                <div class="render-articles__item">
-                                    <div class="render-articles__item-img-box">
-                                        <img src="<?= $imagePath; ?>" alt="item-img"
-                                            class="render-articles__item-img" />
-                                    </div>
-
-                                    <div class="render-articles__item-content">
-                                        <h3 class="render-articles__item-heading">
-                                            <?= htmlspecialchars($post['title']); ?>
-                                        </h3>
-                                        <div class="render-articles__item-info">
-                                            <span
-                                                class="render-articles__item-author"><?= htmlspecialchars($post['username']); ?></span>
-                                            <span class="render-articles__item-date">
-                                                <?php 
-                                                $date = new DateTime($post['created_date']);
-                                                echo $date->format('d.m.Y');
-                                            ?>
-                                            </span>
-                                        </div>
-                                        <p class="render-articles__item-description">
-                                            <?php
-                                            $description = htmlspecialchars($post['description']);
-                                            echo (mb_strlen($description, 'UTF-8') > 150) 
-                                                ? mb_substr($description, 0, 150, 'UTF-8') . '...' 
-                                                : $description;
-                                        ?>
-                                        </p>
-                                    </div>
+                            <div class="render-articles__item">
+                                <div class="render-articles__item-img-box">
+                                    <img src="<?= $imagePath; ?>" alt="item-img" class="render-articles__item-img" />
                                 </div>
-                            </a>
+
+                                <a href="article.php?id=<?= $post['id']; ?>" class="render-articles__item-content">
+                                    <h3 class="render-articles__item-heading">
+                                        <?= htmlspecialchars($post['title']); ?>
+                                    </h3>
+                                    <div class="render-articles__item-info">
+                                        <span
+                                            class="render-articles__item-author"><?= htmlspecialchars($post['username']); ?></span>
+                                        <span class="render-articles__item-date">
+                                            <?php 
+                                            $date = new DateTime($post['created_date']);
+                                            echo $date->format('d.m.Y');
+                                        ?>
+                                        </span>
+                                    </div>
+                                    <p class="render-articles__item-description">
+                                        <?php
+                                        $description = htmlspecialchars($post['description']);
+                                        echo (mb_strlen($description, 'UTF-8') > 150) 
+                                            ? mb_substr($description, 0, 150, 'UTF-8') . '...' 
+                                            : $description;
+                                    ?>
+                                    </p>
+                                </a>
+                            </div>
                             <?php 
                             $count++;
                             endforeach; 

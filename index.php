@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include("./pass.php"); 
 include('./app/controllers/posts.php');
@@ -119,11 +119,9 @@ $totalPages = ceil(count($sortedPosts) / $postsPerPage); // Общее коли�
                                     <img src="<?= $imagePath ?>" alt="item-img" class="render-articles__item-img" />
                                 </div>
 
-                                <div class="render-articles__item-content">
-                                    <a href="article.php?id=<?=$post['id'];?>" class="render-articles__item-link">
-                                        <h3 class="render-articles__item-heading">
-                                            <?= htmlspecialchars($post['title']); ?></h3>
-                                    </a>
+                                <a href="article.php?id=<?= $post['id']; ?>" class="render-articles__item-content">
+                                    <h3 class="render-articles__item-heading">
+                                        <?= htmlspecialchars($post['title']); ?></h3>
 
                                     <div class="render-articles__item-info">
                                         <span
@@ -141,7 +139,7 @@ $totalPages = ceil(count($sortedPosts) / $postsPerPage); // Общее коли�
                                         echo mb_strlen($description, 'UTF-8') > 150 ? mb_substr($description, 0, 150, 'UTF-8') . '...' : $description;
                                         ?>
                                     </p>
-                                </div>
+                                </a>
                             </div>
                             <?php endforeach; ?>
                         </div>
