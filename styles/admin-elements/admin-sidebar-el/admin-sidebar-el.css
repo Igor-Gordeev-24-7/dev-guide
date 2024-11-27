@@ -1,10 +1,13 @@
 .sidebar {
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(124, 124, 124, 0.314);
+  background-color: #333;
 }
 .sidebar__items {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: start;
   gap: 15px;
 }

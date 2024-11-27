@@ -13,8 +13,8 @@
   &__wrapper {
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: start;
-    justify-content: space-between;
     gap: 30px;
   }
 
@@ -22,7 +22,9 @@
     padding: 20px;
     width: 100%;
     background-color: var(--dark-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(124, 124, 124, 0.314);
+    background-color: #333;
   }
   //   menu
   &__menu {

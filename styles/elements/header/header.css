@@ -34,6 +34,10 @@
   width: fit-content;
   position: relative;
   white-space: nowrap;
+  transition: all 0.33s;
+}
+.header__menu-item:hover {
+  color: var(--fourth-color);
 }
 .header__menu-item-link {
   font-size: var(--text-size-middle);

@@ -1,18 +1,25 @@
 .sidebar {
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(124, 124, 124, 0.314);
+  background-color: #333;
+
   &__items {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; // Изменено на строку
+    flex-wrap: wrap; // Добавлено для переноса элементов
     align-items: start;
     gap: 15px;
   }
+
   &__item {
     font-size: var(--text-size-middle);
   }
+
   &__item-link {
     transition: all 0.33s;
   }
+
   &__item-link:hover {
     color: var(--fourth-color);
   }
