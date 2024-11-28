@@ -26,33 +26,26 @@ include(ROOT_PATH . '/pass.php');
                 <li class="header__menu-item">
                     <a href="<?php echo BASE_URL; ?>about.php" class="header__menu-item-link">О проекте</a>
                 </li>
-                <!-- <li class="header__menu-item submenu-open-el">
+                <li class="header__menu-item submenu-open-el">
                     <?php if(isset($_SESSION['id'])): ?>
-                    <a href="#" class="header__menu-item-link "> <?php echo $_SESSION['username']; ?></a>
+                    <a href="<?php echo BASE_URL . 'admin/posts/posts-index.php'; ?>" class="header__menu-item-link ">
+                        <?php echo $_SESSION['username']; ?></a>
 
                     <div class="header__menu-submenu submenu">
 
                         <?php if(isset($_SESSION['admin']) && $_SESSION['admin']): ?>
                         <a href="<?php echo BASE_URL . 'admin/posts/posts-index.php'; ?>"
                             class="header__menu-submenu-link">Админ панель</a>
+
+                        <a href="<?php echo BASE_URL; ?>logout.php" class="header__menu-submenu-link">Выход</a>
                         <?php endif; ?>
 
                         <a href="<?php echo BASE_URL; ?>logout.php" class="header__menu-submenu-link">Выход</a>
 
                     </div>
 
-                    <?php else: ?>
-
-                    <a href="#" class="header__menu-item-link">Личный кабинет</a>
-
-                    <div class="header__menu-submenu submenu">
-                        <a href="<?php echo BASE_URL; ?>login.php" class="header__menu-submenu-link">Вход</a>
-                        <a href="<?php echo BASE_URL; ?>registration.php"
-                            class="header__menu-submenu-link">Регистрация</a>
-                    </div>
-
                     <?php endif; ?>
-                </li> -->
+                </li>
             </ul>
         </nav>
     </div>

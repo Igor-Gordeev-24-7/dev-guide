@@ -1,4 +1,5 @@
 <?php 
+    include("../../app/helps/auth_check.php"); 
     include("../../pass.php"); 
     include("../../app/controllers/topics.php"); 
 ?>

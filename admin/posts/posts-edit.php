@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include("../../app/helps/auth_check.php"); 
     include("../../pass.php"); 
     include("../../app/controllers/posts.php"); 
 ?>
@@ -101,6 +102,12 @@
                                 </option>
                                 <?php endforeach; ?>
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="scheduled_publish_date">Запланировать публикацию:</label>
+                            <input type="datetime-local" id="scheduled_publish_date" name="scheduled_publish_date"
+                                value="<?= $post['scheduled_publish_date'] ?? '' ?>">
                         </div>
 
                         <div class="posts-edit__form-box posts-edit__form-box--checkbox">

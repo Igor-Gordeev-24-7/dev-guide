@@ -1,4 +1,5 @@
 <?php 
+include("../../app/helps/auth_check.php"); 
 include("../../pass.php"); 
 include("../../app/controllers/posts.php"); 
 ?>
@@ -107,6 +108,21 @@ include("../../app/controllers/posts.php");
                                     <?php else: ?>
                                     <a href="posts-index.php?status=1&id=<?=$post['id']; ?>"
                                         class="posts-index__item-el-link">publish</a>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="posts-index__item-el">
+                                    <!-- Кнопка изменения времени публикации -->
+                                    <a href="posts-edit.php?id=<?=$post['id']; ?>"
+                                        class="posts-index__item-el-link">change time</a>
+                                </div>
+
+                                <div class="posts-index__item-el">
+                                    <!-- Отображение статуса публикации -->
+                                    <?php if (isset($post['is_scheduled']) && $post['is_scheduled']): ?>
+                                    <span>Запланировано на: <?=$post['scheduled_publish_date']; ?></span>
+                                    <?php else: ?>
+                                    <span>Не запланировано</span>
                                     <?php endif; ?>
                                 </div>
 

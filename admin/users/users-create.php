@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include("../../app/helps/auth_check.php"); 
 include(__DIR__ . '/../../pass.php');
 include(ROOT_PATH . '/app/controllers/users.php');
 ?>
@@ -50,8 +51,7 @@ include(ROOT_PATH . '/app/controllers/users.php');
 
                         <!-- email -->
                         <label class="users-create__form-label" for="email">Email:</label>
-                        <input disabled class="users-create__form-input" type="email" id="email" value="<?=$email?>"
-                            name="email" />
+                        <input class="users-create__form-input" type="email" id="email" name="email" />
 
                         <!-- username -->
                         <label class="users-create__form-label" for="username">Логин:</label>

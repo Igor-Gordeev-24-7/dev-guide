@@ -1,7 +1,10 @@
 <?php
 session_start();
+// Подключаем файл конфигурации
 include("./pass.php"); 
-include('./app/controllers/posts.php');
+
+// Подключаем файл posts.php, используя константу SITE_ROOT
+include(SITE_ROOT . '/app/controllers/posts.php');
 
 // Определяем направление сортировки. По умолчанию сортируем от новых к старым
 $sortOrder = isset($_GET['sort']) ? $_GET['sort'] : 'desc';

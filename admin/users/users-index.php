@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include("../../app/helps/auth_check.php"); 
 include("../../pass.php"); 
 include('../../app/controllers/users.php'); 
 ?>

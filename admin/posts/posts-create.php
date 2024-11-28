@@ -1,4 +1,5 @@
 <?php 
+include("../../app/helps/auth_check.php"); 
 include("../../pass.php"); 
 include("../../app/controllers/posts.php"); 
 ?>
@@ -64,9 +65,6 @@ include("../../app/controllers/posts.php");
                             <input name="keywords" class="posts-edit__form-input" type="text" id="posts-keywords">
                         </div>
 
-                        <!-- Блок с добавлением разметки в textarea posts-box-content-el -->
-                        <?php include('../../app/include/admin-include/posts-box-content-el.php'); ?>
-
                         <div id="popup" class="popup hidden">
                             <div class="popup__content">
                                 <button id="popup-close" class="popup__close" type="button">×</button>
@@ -75,7 +73,6 @@ include("../../app/controllers/posts.php");
                                 <button id="popup-submit" class="popup__submit" type="button">Добавить</button>
                             </div>
                         </div>
-
 
                         <!-- Блок с добавлением разметки в textarea posts-box-content-el -->
                         <?php include('../../app/include/admin-include/posts-box-content-el.php'); ?>
@@ -98,6 +95,12 @@ include("../../app/controllers/posts.php");
                                 </option>
                                 <?php endforeach; ?>
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="scheduled_publish_date">Запланировать публикацию:</label>
+                            <input type="datetime-local" id="scheduled_publish_date" name="scheduled_publish_date"
+                                value="<?= $post['scheduled_publish_date'] ?? '' ?>">
                         </div>
 
                         <div class="posts-create__form-box posts-create__form-box--checkbox">

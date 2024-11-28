@@ -2,8 +2,11 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include(ROOT_PATH . '/pass.php');
-include(ROOT_PATH . '/app/database/db.php');
+// Подключаем файл конфигурации
+include(SITE_ROOT . '/pass.php');
+
+// Подключаем файл db.php, используя константу SITE_ROOT
+include(SITE_ROOT . '/app/database/db.php');
 
 // Инициализация переменных
 $errorMsg = [];
@@ -33,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
     $keywords = trim($_POST['keywords']); // Добавляем получение keywords
     $content = trim($_POST['content']);
     $postTopic = $_POST['topic'];
+    $scheduled_publish_date = trim($_POST['scheduled_publish_date']); // Добавляем получение даты публикации
 
     // Проверяем, установлен ли чекбокс 'publish'
     $publish = isset($_POST['publish']) ? 1 : 0;
@@ -86,7 +90,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
         'content' => $content,
         'status' => $publish,
         'id_topic' => $postTopic,
+        'scheduled_publish_date' => $scheduled_publish_date, // Добавляем дату публикации
+        'is_scheduled' => ($scheduled_publish_date !== '') ? 1 : 0, // Устанавливаем флаг is_scheduled
     ];
+
+    // test($post);
+    // test($_SESSION['id']);
 
     // Вставляем запись в таблице
     $postId = insert('posts', $post);
@@ -113,6 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
         $content = $post['content'];
         $topic = $post['id_topic'];
         $img = $post['img'];
+        $scheduled_publish_date = $post['scheduled_publish_date']; // Добавляем дату публикации
     } else {
         // Если пост не найден, можно обработать ошибку, например:
         // echo "Пост с таким ID не найден.";
@@ -128,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
     $content = trim($_POST['content']);
     $postTopic = $_POST['topic'];
     $postId = $_POST['id']; // Получаем ID поста для редактирования
+    $scheduled_publish_date = trim($_POST['scheduled_publish_date']); // Добавляем получение даты публикации
 
     // Проверяем, установлен ли чекбокс 'publish'
     $publish = isset($_POST['publish']) ? 1 : 0; // Добавляем инициализацию $publish
@@ -190,6 +201,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
                 'content' => $content,
                 'status' => $publish, // Используем переменную $publish
                 'id_topic' => $postTopic,
+                'scheduled_publish_date' => $scheduled_publish_date, // Добавляем дату публикации
+                'is_scheduled' => ($scheduled_publish_date !== '') ? 1 : 0, // Устанавливаем флаг is_scheduled
             ];
 
             // Выполняем обновление записи в базе данных
@@ -217,7 +230,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['status']) && isset($_GE
 
 // Удаление поста
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['del_id'])) {
-
     $id = $_GET['del_id'];
 
     // Вызов функции delete для удаления записи из таблицы 'posts'
