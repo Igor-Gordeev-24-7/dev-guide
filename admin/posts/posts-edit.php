@@ -106,8 +106,12 @@
 
                         <div class="form-group">
                             <label for="scheduled_publish_date">Запланировать публикацию:</label>
-                            <input type="datetime-local" id="scheduled_publish_date" name="scheduled_publish_date"
-                                value="<?= $post['scheduled_publish_date'] ?? '' ?>">
+                            <div class="input-group">
+                                <input class="posts__scheduled-date" type="datetime-local" id="scheduled_publish_date"
+                                    name="scheduled_publish_date" value="<?= $post['scheduled_publish_date'] ?? '' ?>">
+                                <button type="button" class="posts__scheduled-date-reset btn btn-secondary"
+                                    id="reset-scheduled-date">Сбросить</button>
+                            </div>
                         </div>
 
                         <div class="posts-edit__form-box posts-edit__form-box--checkbox">
@@ -139,6 +143,13 @@
     <script type="module" src="../../scripts/add-el-to-post-content.js"></script>
     <!-- Подключение модуля JavaScript для реализации предпросмотра изображений в модальном окне -->
     <script type="module" src="../../scripts/popup-image-preview.js"></script>
+
+    <!-- Скрипт отчистки поля даты -->
+    <script>
+    document.getElementById('reset-scheduled-date').addEventListener('click', function() {
+        document.getElementById('scheduled_publish_date').value = '';
+    });
+    </script>
 </body>
 
 </html>

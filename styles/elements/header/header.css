@@ -36,11 +36,12 @@
   white-space: nowrap;
   transition: all 0.33s;
 }
-.header__menu-item:hover {
-  color: var(--fourth-color);
-}
 .header__menu-item-link {
   font-size: var(--text-size-middle);
+  transition: all 0.33s;
+}
+.header__menu-item-link:hover {
+  color: var(--fourth-color);
 }
 .header__menu-item-span {
   font-size: var(--text-size-middle);
@@ -73,6 +74,10 @@
 }
 .header__menu-submenu-link {
   font-size: var(--text-size-middle);
+  transition: all 0.33s;
+}
+.header__menu-submenu-link:hover {
+  color: var(--fourth-color);
 }
 .header__menu-submenu-btn {
   font-size: var(--text-size-middle);

@@ -56,6 +56,7 @@ include("../../app/controllers/posts.php");
                             <div class="posts-index__header-el" id="post-status">
                                 <button class="posts-index__header-el-btn" id="post-status-btn">Status</button>
                             </div>
+                            <div class="posts-index__header-el" id="post-status">Scheduled date</div>
 
                         </div>
 
@@ -112,15 +113,11 @@ include("../../app/controllers/posts.php");
                                 </div>
 
                                 <div class="posts-index__item-el">
-                                    <!-- Кнопка изменения времени публикации -->
-                                    <a href="posts-edit.php?id=<?=$post['id']; ?>"
-                                        class="posts-index__item-el-link">change time</a>
-                                </div>
-
-                                <div class="posts-index__item-el">
                                     <!-- Отображение статуса публикации -->
                                     <?php if (isset($post['is_scheduled']) && $post['is_scheduled']): ?>
                                     <span>Запланировано на: <?=$post['scheduled_publish_date']; ?></span>
+                                    <?php elseif (isset($post['status']) && $post['status'] == 1): ?>
+                                    <span>Опубликовано</span>
                                     <?php else: ?>
                                     <span>Не запланировано</span>
                                     <?php endif; ?>

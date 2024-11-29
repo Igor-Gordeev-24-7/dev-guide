@@ -1,7 +1,23 @@
 <?php
-include("../../app/helps/auth_check.php"); 
+// publish_scheduled_posts.php
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
+// Устанавливаем правильный часовой пояс
+date_default_timezone_set('Europe/Moscow');
+
+// Проверяем, запущена ли сессия
+// if (session_status() === PHP_SESSION_NONE) {
+//     session_start();
+// }
+
+// // Проверяем, авторизован ли пользователь
+// if (!isset($_SESSION['id'])) {
+//     // Если пользователь не авторизован, перенаправляем на главную страницу
+//     header("Location: " . BASE_URL . 'index.php');
+//     exit();
+// }
 
 // Подключаем файл конфигурации
 include(__DIR__ . '/../../pass.php');
@@ -32,6 +48,6 @@ if (empty($postsAdmin)) {
     }
 
     // Запись логов
-    // $log_file = SITE_ROOT . '/cron_log.txt';
-    // file_put_contents($log_file, 'CRON job executed at ' . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+    $log_file = SITE_ROOT . '/cron_log.txt';
+    file_put_contents($log_file, 'CRON job executed at ' . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
 }

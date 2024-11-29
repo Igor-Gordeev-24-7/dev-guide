@@ -62,7 +62,7 @@
   }
   &__item-container--posts,
   &__header-container--posts {
-    grid-template-columns: 0.1fr 1fr 0.5fr 0.6fr 0.2fr 0.2fr 0.3fr;
+    grid-template-columns: 0.1fr 1fr 0.5fr 0.6fr 0.2fr 0.2fr 0.3fr 0.6fr;
   }
   &__header-container--topics,
   &__item-container--topics {
@@ -193,6 +193,14 @@
   }
   &__form-submit:hover {
     background-color: var(--fourth-color);
+  }
+
+  &__scheduled-date {
+    color: white;
+  }
+
+  &__scheduled-date-reset {
+    color: white;
   }
 
   // Предпросмотр изображения

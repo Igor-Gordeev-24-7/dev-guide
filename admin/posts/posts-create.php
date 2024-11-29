@@ -99,8 +99,12 @@ include("../../app/controllers/posts.php");
 
                         <div class="form-group">
                             <label for="scheduled_publish_date">Запланировать публикацию:</label>
-                            <input type="datetime-local" id="scheduled_publish_date" name="scheduled_publish_date"
-                                value="<?= $post['scheduled_publish_date'] ?? '' ?>">
+                            <div class="input-group">
+                                <input class="posts__scheduled-date" type="datetime-local" id="scheduled_publish_date"
+                                    name="scheduled_publish_date" value="<?= $post['scheduled_publish_date'] ?? '' ?>">
+                                <button type="button" class="posts__scheduled-date-reset btn btn-secondary"
+                                    id="reset-scheduled-date">Сбросить</button>
+                            </div>
                         </div>
 
                         <div class="posts-create__form-box posts-create__form-box--checkbox">
@@ -128,7 +132,12 @@ include("../../app/controllers/posts.php");
     <script type="module" src="../../scripts/add-el-to-post-content.js"></script>
     <!-- Скрипт активации popup и добавления разметки изображения в поле content -->
     <script type="module" src="../../scripts/posts-popup-gallery-add-img-to-content.js"></script>
-
+    <!-- Скрипт отчистки поля даты -->
+    <script>
+    document.getElementById('reset-scheduled-date').addEventListener('click', function() {
+        document.getElementById('scheduled_publish_date').value = '';
+    });
+    </script>
 </body>
 
 </html>

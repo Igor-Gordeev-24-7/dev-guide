@@ -1,5 +1,4 @@
 <?php
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -12,6 +11,7 @@ if (file_exists(__DIR__ . '/connect.php')) {
 }
 
 // echo "db подключен";
+
 
 if (!function_exists('displayError')) {
     function displayError($error) {

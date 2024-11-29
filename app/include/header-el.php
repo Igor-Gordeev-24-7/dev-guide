@@ -36,8 +36,6 @@ include(ROOT_PATH . '/pass.php');
                         <?php if(isset($_SESSION['admin']) && $_SESSION['admin']): ?>
                         <a href="<?php echo BASE_URL . 'admin/posts/posts-index.php'; ?>"
                             class="header__menu-submenu-link">Админ панель</a>
-
-                        <a href="<?php echo BASE_URL; ?>logout.php" class="header__menu-submenu-link">Выход</a>
                         <?php endif; ?>
 
                         <a href="<?php echo BASE_URL; ?>logout.php" class="header__menu-submenu-link">Выход</a>

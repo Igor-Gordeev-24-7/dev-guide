@@ -170,7 +170,7 @@
 .posts-edit__header-container--posts,
 .posts-create__item-container--posts,
 .posts-create__header-container--posts {
-  grid-template-columns: 0.1fr 1fr 0.5fr 0.6fr 0.2fr 0.2fr 0.3fr;
+  grid-template-columns: 0.1fr 1fr 0.5fr 0.6fr 0.2fr 0.2fr 0.3fr 0.6fr;
 }
 .posts__header-container--topics, .posts__item-container--topics,
 .admin-form__header-container--topics,
@@ -587,6 +587,32 @@
 .posts-edit__form-submit:hover,
 .posts-create__form-submit:hover {
   background-color: var(--fourth-color);
+}
+.posts__scheduled-date,
+.admin-form__scheduled-date,
+.topics-index__scheduled-date,
+.topics-edit__scheduled-date,
+.topics-create__scheduled-date,
+.users-index__scheduled-date,
+.users-edit__scheduled-date,
+.users-create__scheduled-date,
+.posts-index__scheduled-date,
+.posts-edit__scheduled-date,
+.posts-create__scheduled-date {
+  color: white;
+}
+.posts__scheduled-date-reset,
+.admin-form__scheduled-date-reset,
+.topics-index__scheduled-date-reset,
+.topics-edit__scheduled-date-reset,
+.topics-create__scheduled-date-reset,
+.users-index__scheduled-date-reset,
+.users-edit__scheduled-date-reset,
+.users-create__scheduled-date-reset,
+.posts-index__scheduled-date-reset,
+.posts-edit__scheduled-date-reset,
+.posts-create__scheduled-date-reset {
+  color: white;
 }
 .posts__form-preview,
 .admin-form__form-preview,

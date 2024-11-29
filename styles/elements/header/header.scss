@@ -38,11 +38,12 @@
     white-space: nowrap;
     transition: all 0.33s;
   }
-  &__menu-item:hover {
-    color: var(--fourth-color);
-  }
   &__menu-item-link {
     font-size: var(--text-size-middle);
+    transition: all 0.33s;
+  }
+  &__menu-item-link:hover {
+    color: var(--fourth-color);
   }
   &__menu-item-span {
     font-size: var(--text-size-middle);
@@ -75,6 +76,10 @@
   }
   &__menu-submenu-link {
     font-size: var(--text-size-middle);
+    transition: all 0.33s;
+  }
+  &__menu-submenu-link:hover {
+    color: var(--fourth-color);
   }
   &__menu-submenu-btn {
     font-size: var(--text-size-middle);

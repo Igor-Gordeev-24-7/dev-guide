@@ -28,8 +28,11 @@ foreach ($users as $user) {
     $userNames[$user['id']] = $user['username'];
 }
 
+// Проверка, выполняется ли скрипт через cron-задачу
+$isCron = php_sapi_name() == 'cli';
+
 // Код для формы создания поста
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
+if (!$isCron && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
     // Получаем текстовые данные
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
@@ -80,6 +83,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
         $img = '../../assets/uploads/test2.jpg'; // Изображение по умолчанию
     }
 
+    // Проверяем, пустое ли поле scheduled_publish_date
+    if (empty($scheduled_publish_date)) {
+        $scheduled_publish_date = null;
+    }
+
     // Заполняем массив с данными для записи в БД
     $post = [
         'id_user' => $_SESSION['id'],
@@ -91,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
         'status' => $publish,
         'id_topic' => $postTopic,
         'scheduled_publish_date' => $scheduled_publish_date, // Добавляем дату публикации
-        'is_scheduled' => ($scheduled_publish_date !== '') ? 1 : 0, // Устанавливаем флаг is_scheduled
+        'is_scheduled' => ($scheduled_publish_date !== null) ? 1 : 0, // Устанавливаем флаг is_scheduled
     ];
 
     // test($post);
@@ -106,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-post'])) {
 }
 
 // Получение данных поста по его id
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
+if (!$isCron && $_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // Получаем данные поста по id
@@ -130,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 }
 
 // Код для формы редактирования поста
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
+if (!$isCron && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
     // Получаем текстовые данные
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
@@ -190,6 +198,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
             $img = $_POST['current_img']; // Используем старое изображение
         }
 
+        // Проверяем, пустое ли поле scheduled_publish_date
+        if (empty($scheduled_publish_date)) {
+            $scheduled_publish_date = null;
+        }
+
         // Если ошибок по загрузке файла нет, выполняем обновление данных
         if (count($errorMsg) === 0) {
             // Обновляем данные поста в базе данных
@@ -202,7 +215,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
                 'status' => $publish, // Используем переменную $publish
                 'id_topic' => $postTopic,
                 'scheduled_publish_date' => $scheduled_publish_date, // Добавляем дату публикации
-                'is_scheduled' => ($scheduled_publish_date !== '') ? 1 : 0, // Устанавливаем флаг is_scheduled
+                'is_scheduled' => ($scheduled_publish_date !== null) ? 1 : 0, // Устанавливаем флаг is_scheduled
             ];
 
             // Выполняем обновление записи в базе данных
@@ -216,7 +229,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit-post'])) {
 }
 
 // Изменение статуса публикации поста
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['status']) && isset($_GET['id'])) {
+if (!$isCron && $_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['status']) && isset($_GET['id'])) {
     $id = $_GET['id']; // Получаем ID поста
     $status = $_GET['status']; // Получаем новый статус
 
@@ -229,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['status']) && isset($_GE
 }
 
 // Удаление поста
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['del_id'])) {
+if (!$isCron && $_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['del_id'])) {
     $id = $_GET['del_id'];
 
     // Вызов функции delete для удаления записи из таблицы 'posts'
