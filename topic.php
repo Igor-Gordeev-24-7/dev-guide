@@ -92,20 +92,7 @@ usort($sortedPosts, function($a, $b) use ($sortOrder) {
                         <h2 class="render-articles__heading">Публикации по теме: <?= htmlspecialchars($topic['name']) ?>
                         </h2>
                         <!-- Форма сортировки -->
-                        <form method="GET" action="" class="render-articles__sort-form">
-                            <input type="hidden" name="id" value="<?= $topic['id']; ?>">
-                            <div class="render-articles__sort-wrapper">
-                                <label class="render-articles__sort-label">Сортировка:</label>
-                                <button type="submit" name="sort" value="asc"
-                                    class="render-articles__sort-button <?= ($sortOrder === 'asc') ? 'active' : ''; ?>">
-                                    Сначала старые
-                                </button>
-                                <button type="submit" name="sort" value="desc"
-                                    class="render-articles__sort-button <?= ($sortOrder === 'desc') ? 'active' : ''; ?>">
-                                    Сначала новые
-                                </button>
-                            </div>
-                        </form>
+                        <?php include('./app/include/render-articles-sort-form.php'); ?>
                     </div>
 
                     <div class="render-articles__body">

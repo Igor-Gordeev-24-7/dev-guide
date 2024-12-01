@@ -87,3 +87,28 @@
     color: var(--accent-color);
   }
 }
+
+@media (max-width: 1024px) {
+  .info-column {
+    position: static;
+    min-width: initial;
+    max-width: none;
+    width: 100%;
+
+    &__topics-items {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .info-column {
+    &__topics {
+      gap: 10px;
+    }
+    &__topics-item {
+      font-size: var(--text-size-second);
+    }
+  }
+}

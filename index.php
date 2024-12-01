@@ -93,17 +93,8 @@ $totalPages = ceil(count($sortedPosts) / $postsPerPage); // Общее коли�
                         <h2 class="render-articles__heading">Последние публикации</h2>
 
                         <!-- Форма сортировки -->
-                        <form method="GET" action="" class="render-articles__sort-form">
-                            <label class="render-articles__sort-label">Сортировка:</label>
-                            <button type="submit" name="sort" value="desc"
-                                class="render-articles__sort-button <?= $sortOrder === 'desc' ? 'active' : ''; ?>">
-                                Сначала новые
-                            </button>
-                            <button type="submit" name="sort" value="asc"
-                                class="render-articles__sort-button <?= $sortOrder === 'asc' ? 'active' : ''; ?>">
-                                Сначала старые
-                            </button>
-                        </form>
+                        <?php include('./app/include/render-articles-sort-form.php'); ?>
+
                     </div>
                     <div class="render-articles__body">
                         <div class="render-articles__items">
@@ -124,7 +115,14 @@ $totalPages = ceil(count($sortedPosts) / $postsPerPage); // Общее коли�
 
                                 <a href="article.php?id=<?= $post['id']; ?>" class="render-articles__item-content">
                                     <h3 class="render-articles__item-heading">
-                                        <?= htmlspecialchars($post['title']); ?></h3>
+                                        <?php
+                                        $title = htmlspecialchars($post['title']);
+                                        if (strlen($title) > 100) {
+                                            $title = substr($title, 0, 100) . '...';
+                                        }
+                                        echo $title;
+                                        ?>
+                                    </h3>
 
                                     <div class="render-articles__item-info">
                                         <span

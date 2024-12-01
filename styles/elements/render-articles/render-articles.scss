@@ -18,9 +18,21 @@
   &__heading {
     padding-bottom: 15px;
     font-family: var(--font-family);
-    font-size: var(--text-size-big);
+    font-size: var(--text-size-middle);
   }
-  // Кнопки сортировки
+  // Сортировка
+  &__sort-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+  }
+  &__sort-form-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
   &__sort-button {
     padding: 8px 12px;
     margin: 0 5px;
@@ -67,7 +79,7 @@
     padding: 3px;
     min-width: 350px;
     max-width: 350px;
-    height: 197px;
+    height: 100%;
     background-color: var(--second-color);
     border-radius: 5px;
   }
@@ -82,7 +94,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 15px;
+    justify-content: space-between;
     background-color: var(--second-color);
     border-radius: 5px;
   }
@@ -92,6 +104,10 @@
     font-size: var(--text-size-middle);
     cursor: pointer;
     transition: all 0.63s;
+    overflow: hidden; /* Добавлено для скрытия текста, выходящего за пределы */
+    display: -webkit-box; /* Необходимо для -webkit-line-clamp */
+    -webkit-line-clamp: 3; /* Ограничиваем количество строк до 3 */
+    -webkit-box-orient: vertical; /* Указываем ориентацию блока */
   }
   &__item-heading:hover {
     color: var(--accent-color);
@@ -100,16 +116,19 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    font-size: var(--text-size-small);
   }
   &__item-author {
-    font-size: var(--text-size-small);
   }
   &__item-date {
-    font-size: var(--text-size-small);
   }
   &__item-description {
     word-break: break-all;
     max-width: 800px;
+    overflow: hidden; /* Добавлено для скрытия текста, выходящего за пределы */
+    display: -webkit-box; /* Необходимо для -webkit-line-clamp */
+    -webkit-line-clamp: 3; /* Ограничиваем количество строк до 3 */
+    -webkit-box-orient: vertical; /* Указываем ориентацию блока */
   }
   /* Контейнер для пагинации */
   &__pagination-container {
@@ -164,5 +183,72 @@
     background-color: #f8f9fa;
     cursor: not-allowed;
     border-color: #ccc;
+  }
+}
+
+@media (max-width: 1024px) {
+  .render-articles {
+    &__body {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: start;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .render-articles {
+    &__item {
+      height: 160px;
+    }
+    &__item-img-box {
+      padding: 3px;
+      min-width: 250px;
+      max-width: 250px;
+    }
+    &__item-heading {
+      -webkit-line-clamp: 2;
+    }
+    &__item-description {
+      -webkit-line-clamp: 2;
+    }
+  }
+}
+@media (max-width: 480px) {
+  .render-articles {
+    &__item {
+      height: 150px;
+      gap: 10px;
+    }
+    &__item-img-box {
+      padding: 3px;
+      min-width: 200px;
+      max-width: 200px;
+    }
+    &__item-heading {
+      font-size: var(--text-size-small-second);
+    }
+    &__item-info {
+      font-size: var(--text-size-small-second);
+    }
+    &__item-description {
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .render-articles {
+    &__header {
+    }
+    &__item {
+      height: fit-content;
+    }
+    &__item-img-box {
+      display: none;
+    }
+    &__sort-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
   }
 }
