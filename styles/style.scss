@@ -120,6 +120,12 @@ main {
   }
 }
 
+@media (max-width: 430px) {
+  .wrapper {
+    max-width: 400px;
+  }
+}
+
 @media (max-width: 320px) {
   .wrapper {
     max-width: 300px;

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .render-articles {
   padding-bottom: 15px;
+  /* Устраняем конфликт между активной и неактивной кнопками */
   /* Контейнер для пагинации */
   /* Стили для кнопок пагинации */
   /* Стили для кнопок "Предыдущая" и "Следующая" */
@@ -45,6 +46,7 @@
   margin: 0 5px;
   border-radius: 5px;
   background-color: #f0f0f0;
+  color: var(--dark-color);
   cursor: pointer;
   transition: all 0.33s;
 }

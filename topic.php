@@ -12,9 +12,17 @@ $topicId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 // Получаем информацию о теме
 $topic = selectOne('topics', ['id' => $topicId]);
+if (!$topic) {
+    // Обработка случая, когда тема не найдена
+    // die("Тема не найдена");
+}
 
 // Получаем все посты
 $posts = selectForArticle('posts', 'users');
+if (!$posts) {
+    // Обработка случая, когда посты не найдены
+    $posts = [];
+}
 
 // Фильтруем посты, связанные с текущей темой
 $filteredPosts = array_filter($posts, function($post) use ($topicId) {
@@ -89,10 +97,25 @@ usort($sortedPosts, function($a, $b) use ($sortOrder) {
             <div class="render-articles__wrapper wrapper">
                 <div class="render-articles__content">
                     <div class="render-articles__header">
-                        <h2 class="render-articles__heading">Публикации по теме: <?= htmlspecialchars($topic['name']) ?>
+                        <h2 class="render-articles__heading">
+                            <?= htmlspecialchars("Публикации по теме: " . $topic['name']) ?>
                         </h2>
                         <!-- Форма сортировки -->
-                        <?php include('./app/include/render-articles-sort-form.php'); ?>
+                        <form method="GET" action="" class="render-articles__sort-form">
+                            <input type="hidden" name="id" value="<?= $topicId ?>">
+
+                            <label class="render-articles__sort-label">Сортировка:</label>
+                            <div class="render-articles__sort-form-box">
+                                <button type="submit" name="sort" value="desc"
+                                    class="render-articles__sort-button <?= $sortOrder === 'desc' ? 'active' : ''; ?>">
+                                    Сначала новые
+                                </button>
+                                <button type="submit" name="sort" value="asc"
+                                    class="render-articles__sort-button <?= $sortOrder === 'asc' ? 'active' : ''; ?>">
+                                    Сначала старые
+                                </button>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="render-articles__body">

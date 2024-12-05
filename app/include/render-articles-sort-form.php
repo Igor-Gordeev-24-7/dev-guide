@@ -1,5 +1,5 @@
-<!-- Форма сортировки -->
 <form method="GET" action="" class="render-articles__sort-form">
+    <input type="hidden" name="id" value="<?= $topicId ?>">
 
     <label class="render-articles__sort-label">Сортировка:</label>
     <div class="render-articles__sort-form-box">
@@ -12,5 +12,4 @@
             Сначала старые
         </button>
     </div>
-
 </form>
