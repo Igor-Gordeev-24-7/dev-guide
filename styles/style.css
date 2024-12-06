@@ -26,7 +26,7 @@
   --gray-color: #e0e0e0;
   --text-size-title: 48px;
   --text-size-big: 32px;
-  --text-size-middle: 25px;
+  --text-size-middle: 22px;
   --text-size-second: 18px;
   --text-size-small: 16px;
   --text-size-small-second: 13px;
@@ -88,26 +88,12 @@ main {
 
 @media (max-width: 1024px) {
   .wrapper {
+    margin: 0px 20px;
     max-width: 950px;
-  }
-}
-@media (max-width: 768px) {
-  .wrapper {
-    max-width: 700px;
   }
 }
 @media (max-width: 480px) {
   .wrapper {
-    max-width: 450px;
-  }
-}
-@media (max-width: 430px) {
-  .wrapper {
-    max-width: 400px;
-  }
-}
-@media (max-width: 320px) {
-  .wrapper {
-    max-width: 300px;
+    margin: 0px 15px;
   }
 }/*# sourceMappingURL=style.css.map */
