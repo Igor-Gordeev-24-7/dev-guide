@@ -11,7 +11,7 @@ $sortOrder = isset($_GET['sort']) ? $_GET['sort'] : 'desc';
 $topicId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 // Получаем информацию о теме
-$topic = selectOne('topics', ['id' => $topicId]);
+$topic = selectOne('topics', params: ['id' => $topicId]);
 if (!$topic) {
     // Обработка случая, когда тема не найдена
     // die("Тема не найдена");

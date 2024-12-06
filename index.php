@@ -93,7 +93,7 @@ $totalPages = ceil(count($sortedPosts) / $postsPerPage); // Общее коли�
                         <h2 class="render-articles__heading">Последние публикации</h2>
 
                         <!-- Форма сортировки -->
-                        <?php include('./app/include/render-articles-sort-form.php'); ?>
+                        <?php include('./app/include/render-articles-sort-form-main-page.php'); ?>
 
                     </div>
                     <div class="render-articles__body">

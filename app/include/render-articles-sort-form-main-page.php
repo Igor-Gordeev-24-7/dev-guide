@@ -1,8 +1,4 @@
 <form method="GET" action="" class="render-articles__sort-form">
-    <?php if (isset($topicId)): ?>
-    <input type="hidden" name="id" value="<?= $topicId ?>">
-    <?php endif; ?>
-
     <label class="render-articles__sort-label">Сортировка:</label>
     <div class="render-articles__sort-form-box">
         <button type="submit" name="sort" value="desc"
