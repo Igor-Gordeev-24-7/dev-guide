@@ -102,24 +102,30 @@ main {
   height: 8px;
 }
 
+@media (max-width: 1280px) {
+  .wrapper {
+    padding: 0 3%;
+  }
+}
+
 @media (max-width: 1024px) {
   .wrapper {
-    margin: 0px 20px;
-    max-width: 950px;
+    // padding: 0 10%;
+    // max-width: 100%;
   }
 }
 
 // @media (max-width: 768px) {
 //   .wrapper {
-//     max-width: 700px;
+//     max-width: 720px;
 //   }
 // }
 
-@media (max-width: 480px) {
-  .wrapper {
-    margin: 0px 15px;
-  }
-}
+// @media (max-width: 480px) {
+//   .wrapper {
+//     max-width: 420px;
+//   }
+// }
 
 // @media (max-width: 430px) {
 //   .wrapper {

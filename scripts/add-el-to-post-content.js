@@ -1,3 +1,4 @@
+// Разметка прописана в posts-box-content-el.php
 document.addEventListener("DOMContentLoaded", () => {
   // Переменные для управления попапом
   const popup = document.getElementById("popup");
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const addYoutubeEl = document.getElementById("add-youtube");
   const addRutubeEl = document.getElementById("add-rutube");
   const addCodepenEl = document.getElementById("add-codepen");
+  const addBrEl = document.getElementById("add-br"); // Новая кнопка
 
   // Текстовое поле для вставки
   const postsContentEl = document.getElementById("posts-content");
@@ -169,6 +171,12 @@ document.addEventListener("DOMContentLoaded", () => {
         insertTextAtCursor(postsContentEl, insertCodepen);
       }
     );
+  });
+
+  // Обработчик для новой кнопки "Добавить перенос строки"
+  addBrEl.addEventListener("click", () => {
+    const insertBr = "<br><br>";
+    insertTextAtCursor(postsContentEl, insertBr);
   });
 
   // Функция для вставки текста в курсор

@@ -84,20 +84,20 @@ $totalPages = ceil(count($sortedPosts) / $postsPerPage); // Общее коли�
     <?php include("./app/include/header-el.php"); ?>
 
     <!-- main -->
-    <main class="main">
+    <main class="main" id="main" role="main">
         <!-- render-articles -->
-        <section class="render-articles" id="render-articles">
+        <section class="render-articles" id="render-articles" aria-labelledby="render-articles-heading">
             <div class="render-articles__wrapper wrapper">
                 <div class="render-articles__content">
                     <div class="render-articles__header">
-                        <h2 class="render-articles__heading">Последние публикации</h2>
+                        <h2 class="render-articles__heading" id="render-articles-heading">Последние публикации</h2>
 
                         <!-- Форма сортировки -->
                         <?php include('./app/include/render-articles-sort-form-main-page.php'); ?>
 
                     </div>
                     <div class="render-articles__body">
-                        <div class="render-articles__items">
+                        <div class="render-articles__items" role="list">
                             <?php
                             $defaultImagePath = IMAGE_PATH . 'default.webp';
                             foreach ($paginatedPosts as $post):
@@ -108,13 +108,16 @@ $totalPages = ceil(count($sortedPosts) / $postsPerPage); // Общее коли�
                                     $imagePath = $defaultImagePath;
                                 }
                             ?>
-                            <div class="render-articles__item">
+                            <div class="render-articles__item" role="listitem">
                                 <div class="render-articles__item-img-box">
-                                    <img src="<?= $imagePath ?>" alt="item-img" class="render-articles__item-img" />
+                                    <img src="<?= $imagePath ?>" alt="<?= htmlspecialchars($post['title']); ?>"
+                                        class="render-articles__item-img" />
                                 </div>
 
-                                <a href="article.php?id=<?= $post['id']; ?>" class="render-articles__item-content">
-                                    <h3 class="render-articles__item-heading">
+                                <a href="article.php?id=<?= $post['id']; ?>" class="render-articles__item-content"
+                                    aria-labelledby="post-<?= $post['id']; ?>"
+                                    aria-label="Читать статью: <?= htmlspecialchars($post['title']); ?>">
+                                    <h3 class="render-articles__item-heading" id="post-<?= $post['id']; ?>">
                                         <?php
                                         $title = htmlspecialchars($post['title']);
                                         if (strlen($title) > 100) {
@@ -150,20 +153,24 @@ $totalPages = ceil(count($sortedPosts) / $postsPerPage); // Общее коли�
                 </div>
 
                 <!-- Пагинация -->
-                <div class="render-articles__pagination render-articles__pagination-container">
+                <div class="render-articles__pagination render-articles__pagination-container" role="navigation"
+                    aria-label="Пагинация">
                     <?php if ($page > 1): ?>
-                    <a href="?sort=<?= $sortOrder ?>&page=<?= $page - 1 ?>" class="render-articles__prev">Предыдущая</a>
+                    <a href="?sort=<?= $sortOrder ?>&page=<?= $page - 1 ?>" class="render-articles__prev"
+                        aria-label="Предыдущая страница">Предыдущая</a>
                     <?php endif; ?>
 
                     <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                     <a href="?sort=<?= $sortOrder ?>&page=<?= $i ?>"
-                        class="render-articles__link <?= ($page == $i) ? 'active' : ''; ?>">
+                        class="render-articles__link <?= ($page == $i) ? 'active' : ''; ?>"
+                        aria-label="Страница <?= $i ?>">
                         <?= $i ?>
                     </a>
                     <?php endfor; ?>
 
                     <?php if ($page < $totalPages): ?>
-                    <a href="?sort=<?= $sortOrder ?>&page=<?= $page + 1 ?>" class="render-articles__next">Следующая</a>
+                    <a href="?sort=<?= $sortOrder ?>&page=<?= $page + 1 ?>" class="render-articles__next"
+                        aria-label="Следующая страница">Следующая</a>
                     <?php endif; ?>
                 </div>
             </div>
