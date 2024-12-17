@@ -10,7 +10,7 @@
         <button id="add-youtube" class="posts__form-btn" type="button">Видео youtube</button>
         <button id="add-rutube" class="posts__form-btn" type="button">Видео rutube</button>
         <button id="add-codepen" class="posts__form-btn" type="button">Codepen</button>
-        <button id="add-br" class="posts__form-btn" type="button">Добавить перенос строки</button>
+        <button id="add-br" class="posts__form-btn" type="button">Перенос строки</button>
     </div>
     <textarea name="content" class="posts__form-textarea"
         id="posts-content"><?= isset($_POST['content']) ? htmlspecialchars($_POST['content']) : '' ?><?php echo htmlspecialchars($content); ?></textarea>

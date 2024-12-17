@@ -368,6 +368,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 .posts__form-btn,
 .admin-form__form-btn,
